@@ -1,0 +1,23 @@
+//Configurações iniciais (Apenas a primeira vez)
+
+$ git config --global user.name "leeomarques"
+$ git config --global user.email leonardogm_16@hotmail.com
+
+$ git clone https://github.com/leeomarques/osticket.git
+
+//Quando tiver desenvolvendo sempre executar os comandos a seguir (o que está entre parentese é só explicação)
+
+(adiciona ao repositorio local o que foi desenvolvido)
+$ git add .
+
+(consolida o que foi desenvolvido no repositorio local)  
+$ git commit -m "comentario breve sobre o que foi desenvolvido"
+
+(pega no repositorio das nuvens a versao mais atualizada) -- SEMPRE !!!
+$ git remote update  
+
+(junta a versão mais atual das nuvens com a versão que você desenvouveu na base local)
+$ git merge origin/master
+
+(envia tudo para as nuvens e deixa lá a versão mais atualizada)
+$ git push origin master 
