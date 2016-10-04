@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.Modulo;
 import DAO.DAOFactory;
 import Dados.ModuloDAO;
+import Excecoes.*;
 
 public class ControladorModulo {
     
@@ -13,8 +14,13 @@ public class ControladorModulo {
     }
     
     //Metodo para Inserir Modulo
-    public void inserirModulo(Modulo modulo){
-        moduloDAO.inserir(modulo);   
+    public void inserirModulo(Modulo modulo) throws CampoVazioException{
+        if (modulo.getNome() == null){
+            throw new CampoVazioException();
+        }
+        else{
+            moduloDAO.inserir(modulo);
+        }
     }
     
     //Metodo para Buscar o Modulo pelo ID
