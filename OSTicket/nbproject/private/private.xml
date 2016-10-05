@@ -4,8 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Projeto/osticket/OSTicket/src/Negocio/ControladorModulo.java</file>
+            <file>file:/C:/Projeto/osticket/OSTicket/src/DAO/DAOGenerico.java</file>
             <file>file:/C:/Projeto/osticket/OSTicket/src/GUI/OSTicket.java</file>
             <file>file:/C:/Projeto/osticket/OSTicket/src/Dados/ModuloDAO.java</file>
+            <file>file:/C:/Projeto/osticket/OSTicket/src/Dados/PerfilDAO.java</file>
         </group>
     </open-files>
 </project-private>
