@@ -1,5 +1,8 @@
 package GUI;
 
+import ClassesBasicas.Modulo;
+import Negocio.IFachada;
+import Negocio.Fachada;
 import ClassesBasicas.*;
 import Negocio.*;
 import javax.swing.JOptionPane;

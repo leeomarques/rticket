@@ -1,7 +1,7 @@
 //Configurações iniciais (Apenas a primeira vez)
 
-$ git config --global user.name "leeomarques"
-$ git config --global user.email leonardogm_16@hotmail.com
+$ git config --global user.name "toinhotony"
+$ git config --global user.email acorreaoliveira@gmail.com
 
 $ git clone https://github.com/leeomarques/osticket.git
 
