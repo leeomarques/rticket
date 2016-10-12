@@ -12,29 +12,33 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
-@Table(name="USUARIO")
+@Table(name = "USUARIO")
 public class Usuario {
-    
+
     @Id
     @GeneratedValue
-    @Column(name="ID", length=6, nullable=false, unique=true)
+    @Column(name = "ID", length = 6, nullable = false, unique = true)
     private int id;
-    @Column(name="NOME", length=100, nullable=false, unique=false)
+    @Column(name = "NOME", length = 100, nullable = false, unique = false)
     private String nome;
-    @Column(name="LOGIN", length=20, nullable=false, unique=true)
+    @Column(name = "LOGIN", length = 20, nullable = false, unique = true)
     private String login;
-    @Column(name="SENHA", length=25, nullable=false, unique=false)
+    @Column(name = "SENHA", length = 25, nullable = false, unique = false)
     private String senha;
-    @Column(name="ATIVO", length=1, nullable=true, unique=false)
+    @Column(name = "ATIVO", length = 1, nullable = true, unique = false)
     private String ativo;
     @ManyToMany
-    @JoinTable(name="USUARIO_PERFIL",
-               joinColumns={@JoinColumn(name="ID_USUARIO")},
-               inverseJoinColumns={@JoinColumn(name="ID_PERFIL")})
+    @JoinTable(name = "USUARIO_PERFIL",
+            joinColumns = {
+                @JoinColumn(name = "ID_USUARIO")},
+            inverseJoinColumns = {
+                @JoinColumn(name = "ID_PERFIL")})
     private Collection<Perfil> perfis;
-    @OneToMany(mappedBy="usuarios")
+    @OneToMany(mappedBy = "usuarios")
     private Collection<Chamados> chamados;
-    
+    @OneToMany(mappedBy = "usuarios")
+    private Collection<LogChamado> logChamados;
+
     public int getId() {
         return id;
     }
@@ -74,7 +78,7 @@ public class Usuario {
     public void setAtivo(String ativo) {
         this.ativo = ativo;
     }
-    
+
     public Collection<Perfil> getPerfis() {
         return perfis;
     }
@@ -92,7 +96,7 @@ public class Usuario {
     }
 
     public Usuario() {
-        
+
     }
 
     public Usuario(int id, String nome, String login, String senha, String ativo, Collection<Perfil> perfis, Collection<Chamados> chamados) {
@@ -103,5 +107,13 @@ public class Usuario {
         this.ativo = ativo;
         this.perfis = perfis;
         this.chamados = chamados;
+    }
+
+    public Collection<LogChamado> getLogChamados() {
+        return logChamados;
+    }
+
+    public void setLogChamados(Collection<LogChamado> logChamados) {
+        this.logChamados = logChamados;
     }
 }
