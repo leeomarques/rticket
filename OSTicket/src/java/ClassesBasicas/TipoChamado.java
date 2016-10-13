@@ -9,15 +9,18 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "TIPOCHAMADO")
+@Table(name = "TIPO_CHAMADO")
 public class TipoChamado {
 
     @Id
     @GeneratedValue
     @Column(name = "ID", length = 6, nullable = false, unique = true)
     private int id;
+    @Column(name = "NOME", length = 100, nullable = false, unique = true)
     private String nome;
-    @OneToMany(mappedBy = "chamados")
+    @Column(name = "ATIVO", length = 1, nullable = true, unique = false)
+    private String ativo;
+    @OneToMany(mappedBy = "tipoChamados")
     private Collection<Chamados> chamados;
 
     public int getId() {
@@ -41,6 +44,25 @@ public class TipoChamado {
     }
 
     public void setChamados(Collection<Chamados> chamados) {
+        this.chamados = chamados;
+    }
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
+    public TipoChamado() {
+        
+    }
+
+    public TipoChamado(int id, String nome, String ativo, Collection<Chamados> chamados) {
+        this.id = id;
+        this.nome = nome;
+        this.ativo = ativo;
         this.chamados = chamados;
     }
 }

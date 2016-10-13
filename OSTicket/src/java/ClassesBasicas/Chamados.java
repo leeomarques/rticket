@@ -20,31 +20,35 @@ public class Chamados {
     @GeneratedValue
     @Column(name = "ID", length = 6, nullable = false, unique = true)
     private int id;
+    @Column(name = "DATA_CRIACAO", length = 10, nullable = false, unique = false)
     private String dataCriacao;
+    @Column(name = "DATA_FECHAMENTO", length = 10, nullable = false, unique = false)
     private String dataFechamento;
+    @Column(name = "TITULO", length = 100, nullable = false, unique = false)
     private String titulo;
+    @Column(name = "DESCRICAO", length = 500, nullable = false, unique = false)
     private String descricao;
+    @Column(name = "RESPOSTA", length = 500, nullable = true, unique = false)
     private String resposta;
+    @Column(name = "PRIORIDADE", length = 10, nullable = true, unique = false)
     private String prioridade;
-    private String notaChamado;
+    @Column(name = "NOTA_CHAMADO", length = 1 , nullable = true, unique = false)
+    private int notaChamado;
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")
     private Usuario usuarios;
-    @OneToMany(mappedBy = "logchamados")
+    @OneToMany(mappedBy = "chamados")
     private Collection<LogChamado> logChamados;
     @ManyToOne
-    @JoinColumn(name = "ID_TIPOCHAMADO")
-    private TipoChamado tipoChamado;
+    @JoinColumn(name = "ID_TIPO_CHAMADO")
+    private TipoChamado tipoChamados;
     @ManyToOne
-    @JoinColumn(name = "ID_STATUSCHAMADO")
-    private StatusChamado statusChamado;
-
+    @JoinColumn(name = "ID_STATUS_CHAMADO")
+    private StatusChamado statusChamados;
     @ManyToMany
     @JoinTable(name = "CHAMADOS_SERVICOS",
-            joinColumns = {
-                @JoinColumn(name = "ID_CHAMADO")},
-            inverseJoinColumns = {
-                @JoinColumn(name = "ID_SERVICOS")})
+               joinColumns = {@JoinColumn(name = "ID_CHAMADO")},
+               inverseJoinColumns = {@JoinColumn(name = "ID_SERVICO")})
     private Collection<Servicos> servicos;
 
     public int getId() {
@@ -103,11 +107,11 @@ public class Chamados {
         this.prioridade = prioridade;
     }
 
-    public String getNotaChamado() {
+    public int getNotaChamado() {
         return notaChamado;
     }
 
-    public void setNotaChamado(String notaChamado) {
+    public void setNotaChamado(int notaChamado) {
         this.notaChamado = notaChamado;
     }
 
@@ -127,20 +131,20 @@ public class Chamados {
         this.logChamados = logChamados;
     }
 
-    public TipoChamado getTipoChamado() {
-        return tipoChamado;
+    public TipoChamado getTipoChamados() {
+        return tipoChamados;
     }
 
-    public void setTipoChamado(TipoChamado tipoChamado) {
-        this.tipoChamado = tipoChamado;
+    public void setTipoChamado(TipoChamado tipoChamados) {
+        this.tipoChamados = tipoChamados;
     }
 
-    public StatusChamado getStatusChamado() {
-        return statusChamado;
+    public StatusChamado getStatusChamados() {
+        return statusChamados;
     }
 
-    public void setStatusChamado(StatusChamado statusChamado) {
-        this.statusChamado = statusChamado;
+    public void setStatusChamado(StatusChamado statusChamados) {
+        this.statusChamados = statusChamados;
     }
 
     public Collection<Servicos> getServicos() {
@@ -151,4 +155,23 @@ public class Chamados {
         this.servicos = servicos;
     }
 
+    public Chamados() {
+        
+    }
+
+    public Chamados(int id, String dataCriacao, String dataFechamento, String titulo, String descricao, String resposta, String prioridade, int notaChamado, Usuario usuarios, Collection<LogChamado> logChamados, TipoChamado tipoChamados, StatusChamado statusChamados, Collection<Servicos> servicos) {
+        this.id = id;
+        this.dataCriacao = dataCriacao;
+        this.dataFechamento = dataFechamento;
+        this.titulo = titulo;
+        this.descricao = descricao;
+        this.resposta = resposta;
+        this.prioridade = prioridade;
+        this.notaChamado = notaChamado;
+        this.usuarios = usuarios;
+        this.logChamados = logChamados;
+        this.tipoChamados = tipoChamados;
+        this.statusChamados = statusChamados;
+        this.servicos = servicos;
+    }
 }

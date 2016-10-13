@@ -1,6 +1,7 @@
 package Negocio;
 
 import ClassesBasicas.*;
+import java.util.Collection;
 
 public class Fachada implements IFachada{
     
@@ -53,6 +54,10 @@ public class Fachada implements IFachada{
     
     public void alterarModulo(Modulo modulo){
         this.novoModulo.alterarModulo(modulo);
+    }
+    
+    public Collection<Modulo> listarModulo(String sql){
+        return novoModulo.listarModulo(sql);
     }
 //</editor-fold>
    

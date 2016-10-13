@@ -3,7 +3,7 @@ package Negocio;
 import ClassesBasicas.Modulo;
 import DAO.DAOFactory;
 import Dados.ModuloDAO;
-import Excecoes.*;
+import java.util.Collection;
 
 public class ControladorModulo {
     
@@ -26,5 +26,9 @@ public class ControladorModulo {
     //Metodo para Alterar Modulo
     public void alterarModulo(Modulo modulo){
         moduloDAO.alterar(modulo);
+    }
+    
+    public Collection<Modulo> listarModulo(String sql){
+        return moduloDAO.listarColecao(sql);
     }
 }

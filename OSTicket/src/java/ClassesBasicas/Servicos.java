@@ -18,13 +18,14 @@ public class Servicos {
     @GeneratedValue
     @Column(name = "ID", length = 6, nullable = false, unique = true)
     private int id;
+    @Column(name = "NOME", length = 100, nullable = false, unique = false)
     private String nome;
+    @Column(name = "ATIVO", length = 1, nullable = true, unique = false)
+    private String ativo;
     @ManyToMany
-    @JoinTable(name = "SERVICOS_CHAMADOS",
-            joinColumns = {
-                @JoinColumn(name = "ID_SERVICOS")},
-            inverseJoinColumns = {
-                @JoinColumn(name = "ID_CHAMADO")})
+    @JoinTable(name = "CHAMADOS_SERVICOS",
+               joinColumns = {@JoinColumn(name = "ID_SERVICO")},
+               inverseJoinColumns = {@JoinColumn(name = "ID_CHAMADO")})
     private Collection<Chamados> chamados;
 
     public int getId() {
@@ -48,6 +49,25 @@ public class Servicos {
     }
 
     public void setChamados(Collection<Chamados> chamados) {
+        this.chamados = chamados;
+    }
+
+    public String getAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(String ativo) {
+        this.ativo = ativo;
+    }
+
+    public Servicos() {
+        
+    }
+
+    public Servicos(int id, String nome, String ativo, Collection<Chamados> chamados) {
+        this.id = id;
+        this.nome = nome;
+        this.ativo = ativo;
         this.chamados = chamados;
     }
 }

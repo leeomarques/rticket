@@ -3,10 +3,10 @@ package DAO;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
+import javax.persistence.Query;
 
 /**
  * PSC
@@ -81,7 +81,17 @@ public abstract class DAOGenerico<Entidade> {
             e.printStackTrace();
         }
     }
-
+    
+    public final Collection<Entidade> listarColecao(String sql){
+        Collection<Entidade> colecao = null;
+        try {
+            Query q = getEntityManager().createQuery(sql, getClassePersistente());           
+            colecao = q.getResultList();
+        } catch (RuntimeException re) {
+            re.printStackTrace();
+        }
+        return colecao;
+    }
     /**
      * Remove o objeto da base de dados.
      *

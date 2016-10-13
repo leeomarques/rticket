@@ -16,19 +16,44 @@ public abstract class DAOFactory {
             manager = factory.createEntityManager();
         }
     }
-
-    public static UsuarioDAO getUsuarioDAO() {
-        UsuarioDAO dao = new UsuarioDAO(manager);
+    
+    public static ChamadosDAO getChamadosDAO() {
+        ChamadosDAO dao = new ChamadosDAO(manager);
         return dao;
     }
-
+    
+    public static LogChamadoDAO getLogChamadoDAO() {
+        LogChamadoDAO dao = new LogChamadoDAO(manager);
+        return dao;
+    }
+    
+    public static ModuloDAO getModuloDAO() {
+        ModuloDAO dao = new ModuloDAO(manager);
+        return dao;
+    }
+    
     public static PerfilDAO getPerfilDAO() {
         PerfilDAO dao = new PerfilDAO(manager);
         return dao;
     }
-
-    public static ModuloDAO getModuloDAO() {
-        ModuloDAO dao = new ModuloDAO(manager);
+    
+    public static ServicosDAO getServicosDAO() {
+        ServicosDAO dao = new ServicosDAO(manager);
+        return dao;
+    }
+    
+    public static StatusChamadoDAO getStatusChamadoDAO() {
+        StatusChamadoDAO dao = new StatusChamadoDAO(manager);
+        return dao;
+    }
+    
+    public static TipoChamadoDAO getTipoChamadoDAO() {
+        TipoChamadoDAO dao = new TipoChamadoDAO(manager);
+        return dao;
+    }
+    
+    public static UsuarioDAO getUsuarioDAO() {
+        UsuarioDAO dao = new UsuarioDAO(manager);
         return dao;
     }
 }

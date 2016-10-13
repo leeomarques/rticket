@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.Modulo;
 import ClassesBasicas.Perfil;
 import ClassesBasicas.Usuario;
+import java.util.Collection;
 
 public interface IFachada {
     
@@ -22,5 +23,6 @@ public interface IFachada {
     void inserirModulo(Modulo modulo);
     Modulo buscarModulo(int id);
     void alterarModulo(Modulo modulo);
+    Collection<Modulo> listarModulo(String sql);
 //</editor-fold>
 }

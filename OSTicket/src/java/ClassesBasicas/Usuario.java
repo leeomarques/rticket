@@ -29,10 +29,8 @@ public class Usuario {
     private String ativo;
     @ManyToMany
     @JoinTable(name = "USUARIO_PERFIL",
-            joinColumns = {
-                @JoinColumn(name = "ID_USUARIO")},
-            inverseJoinColumns = {
-                @JoinColumn(name = "ID_PERFIL")})
+               joinColumns = {@JoinColumn(name = "ID_USUARIO")},
+               inverseJoinColumns = {@JoinColumn(name = "ID_PERFIL")})
     private Collection<Perfil> perfis;
     @OneToMany(mappedBy = "usuarios")
     private Collection<Chamados> chamados;
@@ -94,12 +92,20 @@ public class Usuario {
     public void setChamados(Collection<Chamados> chamados) {
         this.chamados = chamados;
     }
+    
+    public Collection<LogChamado> getLogChamados() {
+        return logChamados;
+    }
+
+    public void setLogChamados(Collection<LogChamado> logChamados) {
+        this.logChamados = logChamados;
+    }
 
     public Usuario() {
 
     }
 
-    public Usuario(int id, String nome, String login, String senha, String ativo, Collection<Perfil> perfis, Collection<Chamados> chamados) {
+    public Usuario(int id, String nome, String login, String senha, String ativo, Collection<Perfil> perfis, Collection<Chamados> chamados, Collection<LogChamado> logChamados) {
         this.id = id;
         this.nome = nome;
         this.login = login;
@@ -107,13 +113,6 @@ public class Usuario {
         this.ativo = ativo;
         this.perfis = perfis;
         this.chamados = chamados;
-    }
-
-    public Collection<LogChamado> getLogChamados() {
-        return logChamados;
-    }
-
-    public void setLogChamados(Collection<LogChamado> logChamados) {
         this.logChamados = logChamados;
     }
 }

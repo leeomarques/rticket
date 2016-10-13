@@ -9,19 +9,22 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "LOGCHAMADO")
+@Table(name = "LOG_CHAMADO")
 public class LogChamado {
 
     @Id
     @GeneratedValue
     @Column(name = "ID", length = 6, nullable = false, unique = true)
     private int id;
+    @Column(name="DATA", length=10, nullable=false, unique=false)
     private String data;
+    @Column(name="CAMPO", length=100, nullable=false, unique=false)
     private String campo;
+    @Column(name="HISTORIO", length=800, nullable=false, unique=false)
     private String historico;
     @ManyToOne
     @JoinColumn(name = "ID_USUARIO")
-    private Usuario usuario;
+    private Usuario usuarios;
     @ManyToOne
     @JoinColumn(name = "ID_CHAMADOS")
     private Chamados chamados;
@@ -58,12 +61,12 @@ public class LogChamado {
         this.historico = historico;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getUsuarios() {
+        return usuarios;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setUsuario(Usuario usuarios) {
+        this.usuarios = usuarios;
     }
 
     public Chamados getChamados() {
@@ -74,4 +77,16 @@ public class LogChamado {
         this.chamados = chamados;
     }
 
+    public LogChamado() {
+        
+    }
+
+    public LogChamado(int id, String data, String campo, String historico, Usuario usuarios, Chamados chamados) {
+        this.id = id;
+        this.data = data;
+        this.campo = campo;
+        this.historico = historico;
+        this.usuarios = usuarios;
+        this.chamados = chamados;
+    }  
 }
