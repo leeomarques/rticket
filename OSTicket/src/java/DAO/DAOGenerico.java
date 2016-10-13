@@ -86,9 +86,7 @@ public abstract class DAOGenerico<Entidade> {
     public final Collection<Entidade> listarColecao(){
         Collection<Entidade> colecao = null;
         String sql = "";
-        if (getClassePersistente() == Modulo.class){
-           sql = ("select m from Modulo m");
-        }
+        sql = ("select m from " + getClassePersistente().getName() +" m");
         try {
             Query q = getEntityManager().createQuery(sql, getClassePersistente());           
             colecao = q.getResultList();

@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.Servicos;
 import DAO.DAOFactory;
 import Dados.ServicosDAO;
+import java.util.Collection;
 
 public class ControladorServicos {
     
@@ -25,5 +26,10 @@ public class ControladorServicos {
     //Metodo para Alterar Servicos
     public void alterarServicos(Servicos servicos){
         servicosDAO.alterar(servicos);
+    }
+    
+    //Listar todos os Servicos
+    public Collection<Servicos> listarServicos(){
+        return servicosDAO.listarColecao();
     }
 }

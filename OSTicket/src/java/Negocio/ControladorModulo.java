@@ -28,6 +28,7 @@ public class ControladorModulo {
         moduloDAO.alterar(modulo);
     }
     
+    //Listar todos os Modulos
     public Collection<Modulo> listarModulo(){
         return moduloDAO.listarColecao();
     }

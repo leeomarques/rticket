@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.TipoChamado;
 import DAO.DAOFactory;
 import Dados.TipoChamadoDAO;
+import java.util.Collection;
 
 public class ControladorTipoChamado {
     
@@ -25,5 +26,10 @@ public class ControladorTipoChamado {
     //Metodo para Alterar TipoChamado
     public void alterarTipoChamado(TipoChamado tipoChamado){
         tipoChamadoDAO.alterar(tipoChamado);
+    }
+    
+    //Listar todos os TipoChamado
+    public Collection<TipoChamado> listarTipoChamado(){
+        return tipoChamadoDAO.listarColecao();
     }
 }

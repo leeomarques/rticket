@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.Usuario;
 import DAO.DAOFactory;
 import Dados.UsuarioDAO;
+import java.util.Collection;
 
 public class ControladorUsuario {
     
@@ -25,5 +26,10 @@ public class ControladorUsuario {
     //Metodo para Alterar Usuario
     public void alterarUsuario(Usuario usuario){
         usuarioDAO.alterar(usuario);
+    }
+    
+    //Listar todos os Usuarios
+    public Collection<Usuario> listarUsuario(){
+        return usuarioDAO.listarColecao();
     }
 }

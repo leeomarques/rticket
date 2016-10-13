@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.LogChamado;
 import DAO.DAOFactory;
 import Dados.LogChamadoDAO;
+import java.util.Collection;
 
 public class ControladorLogChamado {
     
@@ -25,5 +26,10 @@ public class ControladorLogChamado {
     //Metodo para Alterar LogChamado
     public void alterarLogChamado(LogChamado logChamado){
         logChamadoDAO.alterar(logChamado);
+    }
+    
+    //Listar todos os LogChamados
+    public Collection<LogChamado> listarLogChamados(){
+        return logChamadoDAO.listarColecao();
     }
 }

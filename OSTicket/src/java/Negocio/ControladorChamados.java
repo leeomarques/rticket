@@ -3,6 +3,7 @@ package Negocio;
 import ClassesBasicas.Chamados;
 import DAO.DAOFactory;
 import Dados.ChamadosDAO;
+import java.util.Collection;
 
 public class ControladorChamados {
     
@@ -25,5 +26,10 @@ public class ControladorChamados {
     //Metodo para Alterar Chamados
     public void alterarChamados(Chamados chamado){
         chamadosDAO.alterar(chamado);
+    }
+    
+    //Listar todos os Chamados
+    public Collection<Chamados> listarChamados(){
+        return chamadosDAO.listarColecao();
     }
 }
