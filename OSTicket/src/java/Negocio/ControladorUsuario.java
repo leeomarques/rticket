@@ -4,7 +4,6 @@ import ClassesBasicas.Usuario;
 import DAO.DAOFactory;
 import Dados.UsuarioDAO;
 
-
 public class ControladorUsuario {
     
     private UsuarioDAO usuarioDAO;

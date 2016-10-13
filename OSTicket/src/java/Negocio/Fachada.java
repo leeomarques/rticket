@@ -56,8 +56,8 @@ public class Fachada implements IFachada{
         this.novoModulo.alterarModulo(modulo);
     }
     
-    public Collection<Modulo> listarModulo(String sql){
-        return novoModulo.listarModulo(sql);
+    public Collection<Modulo> listarModulo(){
+        return novoModulo.listarModulo();
     }
 //</editor-fold>
    

@@ -1,5 +1,6 @@
 package DAO;
 
+import ClassesBasicas.*;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
@@ -82,8 +83,12 @@ public abstract class DAOGenerico<Entidade> {
         }
     }
     
-    public final Collection<Entidade> listarColecao(String sql){
+    public final Collection<Entidade> listarColecao(){
         Collection<Entidade> colecao = null;
+        String sql = "";
+        if (getClassePersistente() == Modulo.class){
+           sql = ("select m from Modulo m");
+        }
         try {
             Query q = getEntityManager().createQuery(sql, getClassePersistente());           
             colecao = q.getResultList();

@@ -23,6 +23,6 @@ public interface IFachada {
     void inserirModulo(Modulo modulo);
     Modulo buscarModulo(int id);
     void alterarModulo(Modulo modulo);
-    Collection<Modulo> listarModulo(String sql);
+    Collection<Modulo> listarModulo();
 //</editor-fold>
 }

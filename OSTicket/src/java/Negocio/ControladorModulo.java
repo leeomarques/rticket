@@ -28,7 +28,7 @@ public class ControladorModulo {
         moduloDAO.alterar(modulo);
     }
     
-    public Collection<Modulo> listarModulo(String sql){
-        return moduloDAO.listarColecao(sql);
+    public Collection<Modulo> listarModulo(){
+        return moduloDAO.listarColecao();
     }
 }

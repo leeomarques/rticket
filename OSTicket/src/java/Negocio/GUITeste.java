@@ -8,8 +8,8 @@ public class GUITeste {
         IFachada fach = new Fachada();
         
         Iterator<Modulo> iterator;
-        String sql = ("select m from Modulo m");
-        iterator = fach.listarModulo(sql).iterator();
+        
+        iterator = fach.listarModulo().iterator();
         
         //Laço para exibir a lista de Modulos.
         while(iterator.hasNext()) {
