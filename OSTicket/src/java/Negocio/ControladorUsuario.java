@@ -4,6 +4,9 @@ import ClassesBasicas.Usuario;
 import DAO.DAOFactory;
 import Dados.UsuarioDAO;
 import Excecoes.*;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 public class ControladorUsuario {
@@ -15,20 +18,34 @@ public class ControladorUsuario {
         usuarioDAO = DAOFactory.getUsuarioDAO();
     }
     
+    //Metodo para EfetuarLogin
+    public Boolean efetuarLogin(String login, String senha) throws ValidarLoginException, NoSuchAlgorithmException{
+        senha = converterSenhaMD5(senha);
+        return this.verificaLogin = usuarioDAO.efetuarLogin(login, senha);
+    }
     //Metodo para buscar o Usuario pelo Login
     public Boolean buscarLogin(String login){
         return this.verificaLogin = usuarioDAO.buscarLogin(login);
     }
+    //Metodo para Encriptar a Senha do Usuario
+    public static String converterSenhaMD5(String password) throws NoSuchAlgorithmException {
+        MessageDigest md = MessageDigest.getInstance("MD5");
+        BigInteger hash = new BigInteger(1, md.digest(password.getBytes()));
+        
+        return String.format("%32x", hash);
+    }
+    
     //Metodo para Inserir Usuario
-    public void inserirUsuario(Usuario usuario)throws CampoVazioException, LoginExistenteException{
+    public void inserirUsuario(Usuario usuario)throws CampoVazioException, CampoExistenteException, NoSuchAlgorithmException{
         if (usuario.getNome() == null || usuario.getLogin() == null || usuario.getSenha() == null){
             throw new CampoVazioException(); 
         }
         buscarLogin(usuario.getLogin());
         if (verificaLogin == false){
-            throw new LoginExistenteException();
+            throw new CampoExistenteException();
         }
-        else{
+        else{          
+            usuario.setSenha(converterSenhaMD5(usuario.getSenha())) ;
             usuarioDAO.inserir(usuario);
         }   
     }
@@ -46,5 +63,5 @@ public class ControladorUsuario {
     //Listar todos os Usuarios
     public Collection<Usuario> listarUsuario(){
         return usuarioDAO.listarColecao();
-    }
+    } 
 }

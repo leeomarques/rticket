@@ -9,28 +9,13 @@ import ClassesBasicas.StatusChamado;
 import ClassesBasicas.TipoChamado;
 import ClassesBasicas.Usuario;
 import Excecoes.*;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 public interface IFachada {
 
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para Usuarios">
-    void inserirUsuario(Usuario usuario) throws CampoVazioException, LoginExistenteException;
-
-    Usuario buscarUsuario(int id);
-
-    void alterarUsuario(Usuario usuario);
-//</editor-fold>
-
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para Perfis">
-    void inserirPerfil(Perfil perfil);
-
-    Perfil buscarPerfil(int id);
-
-    void alterarPerfil(Perfil perfil);
-//</editor-fold>
-
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para Modulos">
-    void inserirModulo(Modulo modulo);
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para Modulos">
+    void inserirModulo(Modulo modulo) throws CampoExistenteException;
 
     Modulo buscarModulo(int id);
 
@@ -38,8 +23,26 @@ public interface IFachada {
 
     Collection<Modulo> listarModulo();
 //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para Perfis">
+    void inserirPerfil(Perfil perfil) throws CampoExistenteException;
 
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para Chamados">
+    Perfil buscarPerfil(int id);
+
+    void alterarPerfil(Perfil perfil);
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para Usuarios">
+    Boolean efetuarLogin(String login, String senha) throws ValidarLoginException, NoSuchAlgorithmException;
+    
+    void inserirUsuario(Usuario usuario) throws CampoVazioException, CampoExistenteException, NoSuchAlgorithmException;
+
+    Usuario buscarUsuario(int id);
+
+    void alterarUsuario(Usuario usuario);
+    //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para Chamados">
     void inserirChamados(Chamados chamado);
 
     Chamados buscarChamados(int id);
@@ -47,9 +50,9 @@ public interface IFachada {
     void alterarChamados(Chamados chamado);
 
     Collection<Chamados> listarChamados();
-//</editor-fold>
+    //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para LogChamados">
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para LogChamados">
     void inserirLogChamados(LogChamado logChamado);
 
     LogChamado buscarLogChamados(int id);
@@ -57,9 +60,9 @@ public interface IFachada {
     void alterarLogChamados(LogChamado LogChamado);
 
     Collection<LogChamado> listarLogChamados();
-//</editor-fold>
+    //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para Servicos">
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para Servicos">
     public void inserirServicos(Servicos servicos);
 
     public Servicos buscarServicos(int id);
@@ -67,9 +70,9 @@ public interface IFachada {
     public void alterarServicos(Servicos servicos);
 
     public Collection<Servicos> listarServicos();
-//</editor-fold>
+    //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para StatusChamado">
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para StatusChamado">
     public void inserirStatusChamado(StatusChamado statusChamado);
 
     public StatusChamado buscarStatusChamado(int id);
@@ -77,9 +80,9 @@ public interface IFachada {
     public void alterarStatusChamado(StatusChamado statusChamado);
 
     public Collection<StatusChamado> listarStatusChamado();
-//</editor-fold>
+    //</editor-fold>
 
-//<editor-fold defaultstate="collapsed" desc="Assinaturas para TipoChamado">
+    //<editor-fold defaultstate="collapsed" desc="Assinaturas para TipoChamado">
     public void inserirTipoChamado(TipoChamado tipoChamado);
 
     public TipoChamado buscarTipoChamado(int id);
@@ -87,6 +90,6 @@ public interface IFachada {
     public void alterarTipoChamado(TipoChamado tipoChamado);
 
     public Collection<TipoChamado> listarTipoChamado();
-//</editor-fold>
+    //</editor-fold>
 
 }

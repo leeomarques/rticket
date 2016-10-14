@@ -2,21 +2,23 @@ package Negocio;
 
 import ClassesBasicas.*;
 import Excecoes.*;
+import java.security.NoSuchAlgorithmException;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 public class GUITeste {
-    public static void main(String[] args){
+    public static void main(String[] args) throws NoSuchAlgorithmException{
         IFachada fach = new Fachada();
         try{
             Usuario user = new Usuario();
             user.setNome("Yanne");
-            user.setLogin("YYY");
-            user.setSenha("1234");
+            user.setLogin("PPYQASW");
+            user.setSenha("Senha1");
             fach.inserirUsuario(user);           
+            JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
         }catch(CampoVazioException e){
             JOptionPane.showMessageDialog(null, "Preencher todos os campos");
-        }catch(LoginExistenteException e){
+        }catch(CampoExistenteException e){
             JOptionPane.showMessageDialog(null, "Login Existente");
         }
         Iterator<Modulo> iterator;

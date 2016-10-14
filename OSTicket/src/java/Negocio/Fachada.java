@@ -2,60 +2,34 @@ package Negocio;
 
 import ClassesBasicas.*;
 import Excecoes.*;
+import static Negocio.ControladorUsuario.*;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 public class Fachada implements IFachada {
 
-    private ControladorUsuario novoUsuario;
-    private ControladorPerfil novoPerfil;
-    private ControladorModulo novoModulo;
-    private ControladorChamados novoChamado;
-    private ControladorLogChamado novoLogChamado;
-    private ControladorServicos novoServico;
+    private ControladorModulo        novoModulo;
+    private ControladorPerfil        novoPerfil;
+    private ControladorUsuario       novoUsuario; 
+    private ControladorChamados      novoChamado;
+    private ControladorLogChamado    novoLogChamado;
+    private ControladorServicos      novoServico;
     private ControladorStatusChamado novoStatusChamado;
-    private ControladorTipoChamado novoTipoChamado;
+    private ControladorTipoChamado   novoTipoChamado;
 
     public Fachada() {
-        this.novoUsuario = new ControladorUsuario();
-        this.novoPerfil = new ControladorPerfil();
-        this.novoModulo = new ControladorModulo();
-        this.novoChamado = new ControladorChamados();
-        this.novoLogChamado = new ControladorLogChamado();
-        this.novoServico = new ControladorServicos();
+        this.novoUsuario       = new ControladorUsuario();
+        this.novoPerfil        = new ControladorPerfil();
+        this.novoModulo        = new ControladorModulo();
+        this.novoChamado       = new ControladorChamados();
+        this.novoLogChamado    = new ControladorLogChamado();
+        this.novoServico       = new ControladorServicos();
         this.novoStatusChamado = new ControladorStatusChamado();
-        this.novoTipoChamado = new ControladorTipoChamado();
+        this.novoTipoChamado   = new ControladorTipoChamado();
     }
-
-    //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
-    public void inserirUsuario(Usuario usuario) throws CampoVazioException, LoginExistenteException{
-        this.novoUsuario.inserirUsuario(usuario);
-    }
-
-    public Usuario buscarUsuario(int id) {
-        return this.novoUsuario.buscarUsuario(id);
-    }
-
-    public void alterarUsuario(Usuario usuario) {
-        this.novoUsuario.alterarUsuario(usuario);
-    }
-//</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Metodos para Perfis">
-    public void inserirPerfil(Perfil perfil) {
-        this.novoPerfil.inserirPerfil(perfil);
-    }
-
-    public Perfil buscarPerfil(int id) {
-        return this.novoPerfil.buscarPerfil(id);
-    }
-
-    public void alterarPerfil(Perfil perfil) {
-        this.novoPerfil.alterarPerfil(perfil);
-    }
-//</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Modulos">
-    public void inserirModulo(Modulo modulo) {
+    public void inserirModulo(Modulo modulo) throws CampoExistenteException {
         this.novoModulo.inserirModulo(modulo);
     }
 
@@ -69,6 +43,38 @@ public class Fachada implements IFachada {
 
     public Collection<Modulo> listarModulo() {
         return novoModulo.listarModulo();
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Metodos para Perfis">
+    public void inserirPerfil(Perfil perfil) throws CampoExistenteException{
+        this.novoPerfil.inserirPerfil(perfil);
+    }
+
+    public Perfil buscarPerfil(int id) {
+        return this.novoPerfil.buscarPerfil(id);
+    }
+
+    public void alterarPerfil(Perfil perfil) {
+        this.novoPerfil.alterarPerfil(perfil);
+    }
+//</editor-fold>
+    
+    public Boolean efetuarLogin(String login, String senha) throws ValidarLoginException, NoSuchAlgorithmException{
+        return this.novoUsuario.efetuarLogin(login, senha);
+    }
+    
+    //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
+    public void inserirUsuario(Usuario usuario) throws CampoVazioException, CampoExistenteException, NoSuchAlgorithmException{
+        this.novoUsuario.inserirUsuario(usuario);
+    }
+
+    public Usuario buscarUsuario(int id) {
+        return this.novoUsuario.buscarUsuario(id);
+    }
+
+    public void alterarUsuario(Usuario usuario) {
+        this.novoUsuario.alterarUsuario(usuario);
     }
 //</editor-fold>
 
@@ -161,5 +167,4 @@ public class Fachada implements IFachada {
         return novoTipoChamado.listarTipoChamado();
     }
 //</editor-fold>
-
 }

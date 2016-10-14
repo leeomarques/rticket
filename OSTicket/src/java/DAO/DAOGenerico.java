@@ -55,7 +55,6 @@ public abstract class DAOGenerico<Entidade> {
             tx.begin();
             getEntityManager().persist(objeto);
             tx.commit();
-            System.out.println(classePersistente.getSimpleName() + " salvo com sucesso");
         } catch (PersistenceException e) {
             tx.rollback();
         }
@@ -83,6 +82,7 @@ public abstract class DAOGenerico<Entidade> {
         }
     }
     
+    //Listar Colecao
     public final Collection<Entidade> listarColecao(){
         Collection<Entidade> colecao = null;
         String sql = "";
