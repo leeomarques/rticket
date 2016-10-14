@@ -1,6 +1,7 @@
 package Negocio;
 
 import ClassesBasicas.*;
+import Excecoes.*;
 import java.util.Collection;
 
 public class Fachada implements IFachada {
@@ -26,7 +27,7 @@ public class Fachada implements IFachada {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
-    public void inserirUsuario(Usuario usuario) {
+    public void inserirUsuario(Usuario usuario) throws CampoVazioException, LoginExistenteException{
         this.novoUsuario.inserirUsuario(usuario);
     }
 

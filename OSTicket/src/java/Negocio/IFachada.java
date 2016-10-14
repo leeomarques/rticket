@@ -8,12 +8,13 @@ import ClassesBasicas.Servicos;
 import ClassesBasicas.StatusChamado;
 import ClassesBasicas.TipoChamado;
 import ClassesBasicas.Usuario;
+import Excecoes.*;
 import java.util.Collection;
 
 public interface IFachada {
 
 //<editor-fold defaultstate="collapsed" desc="Assinaturas para Usuarios">
-    void inserirUsuario(Usuario usuario);
+    void inserirUsuario(Usuario usuario) throws CampoVazioException, LoginExistenteException;
 
     Usuario buscarUsuario(int id);
 

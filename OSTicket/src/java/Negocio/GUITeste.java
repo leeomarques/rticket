@@ -1,6 +1,7 @@
 package Negocio;
 
 import ClassesBasicas.*;
+import Excecoes.*;
 import java.util.Iterator;
 import javax.swing.JOptionPane;
 
@@ -13,8 +14,10 @@ public class GUITeste {
             user.setLogin("YYY");
             user.setSenha("1234");
             fach.inserirUsuario(user);           
-        }catch(Exception e){
+        }catch(CampoVazioException e){
             JOptionPane.showMessageDialog(null, "Preencher todos os campos");
+        }catch(LoginExistenteException e){
+            JOptionPane.showMessageDialog(null, "Login Existente");
         }
         Iterator<Modulo> iterator;
         
