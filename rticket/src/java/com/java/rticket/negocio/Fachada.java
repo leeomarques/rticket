@@ -3,6 +3,7 @@ package com.java.rticket.negocio;
 import com.java.rticket.excecao.ValidarLoginException;
 import com.java.rticket.excecao.CampoVazioException;
 import com.java.rticket.excecao.CampoExistenteException;
+import com.java.rticket.excecao.FormatoInvalidoException;
 import com.java.rticket.model.StatusChamado;
 import com.java.rticket.model.Perfil;
 import com.java.rticket.model.Modulo;
@@ -37,7 +38,9 @@ public class Fachada implements IFachada {
     }
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Modulos">
-    public void inserirModulo(Modulo modulo) throws CampoExistenteException {
+    public void inserirModulo(Modulo modulo) 
+            throws CampoExistenteException, FormatoInvalidoException, 
+                CampoVazioException {
         this.novoModulo.inserirModulo(modulo);
     }
 
@@ -55,7 +58,9 @@ public class Fachada implements IFachada {
 //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Metodos para Perfis">
-    public void inserirPerfil(Perfil perfil) throws CampoExistenteException{
+    public void inserirPerfil(Perfil perfil) 
+            throws CampoExistenteException, FormatoInvalidoException, 
+                CampoVazioException{
         this.novoPerfil.inserirPerfil(perfil);
     }
 
@@ -66,14 +71,21 @@ public class Fachada implements IFachada {
     public void alterarPerfil(Perfil perfil) {
         this.novoPerfil.alterarPerfil(perfil);
     }
+    
+    public Collection<Perfil> listarPerfil() {
+        return novoPerfil.listarPerfil();
+    }
 //</editor-fold>
     
-    public Boolean efetuarLogin(String login, String senha) throws ValidarLoginException, NoSuchAlgorithmException{
+    //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
+    public Boolean efetuarLogin(String login, String senha) 
+            throws ValidarLoginException, NoSuchAlgorithmException{
         return this.novoUsuario.efetuarLogin(login, senha);
     }
     
-    //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
-    public void inserirUsuario(Usuario usuario) throws CampoVazioException, CampoExistenteException, NoSuchAlgorithmException{
+    public void inserirUsuario(Usuario usuario) 
+            throws CampoVazioException, CampoExistenteException, 
+                NoSuchAlgorithmException, FormatoInvalidoException{
         this.novoUsuario.inserirUsuario(usuario);
     }
 
@@ -83,6 +95,10 @@ public class Fachada implements IFachada {
 
     public void alterarUsuario(Usuario usuario) {
         this.novoUsuario.alterarUsuario(usuario);
+    }
+    
+    public Collection<Usuario> listarUsuario() {
+        return novoUsuario.listarUsuario();
     }
 //</editor-fold>
 
@@ -123,7 +139,9 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Servicos">
-    public void inserirServicos(Servicos servicos) {
+    public void inserirServicos(Servicos servicos) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException{
         this.novoServico.inserirServicos(servicos);
     }
 
@@ -141,7 +159,9 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para StatusChamado">
-    public void inserirStatusChamado(StatusChamado statusChamado) {
+    public void inserirStatusChamado(StatusChamado statusChamado) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException{
         this.novoStatusChamado.inserirStatusChamado(statusChamado);
     }
 
@@ -159,7 +179,9 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para TipoChamado">
-    public void inserirTipoChamado(TipoChamado tipoChamado) {
+    public void inserirTipoChamado(TipoChamado tipoChamado) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException{
         this.novoTipoChamado.inserirTipoChamado(tipoChamado);
     }
 

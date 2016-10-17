@@ -3,6 +3,7 @@ package com.java.rticket.negocio;
 import com.java.rticket.excecao.ValidarLoginException;
 import com.java.rticket.excecao.CampoVazioException;
 import com.java.rticket.excecao.CampoExistenteException;
+import com.java.rticket.excecao.FormatoInvalidoException;
 import com.java.rticket.model.Chamados;
 import com.java.rticket.model.LogChamado;
 import com.java.rticket.model.Modulo;
@@ -17,7 +18,9 @@ import java.util.Collection;
 public interface IFachada {
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Modulos">
-    void inserirModulo(Modulo modulo) throws CampoExistenteException;
+    void inserirModulo(Modulo modulo) 
+            throws CampoExistenteException, FormatoInvalidoException, 
+                CampoVazioException;
 
     Modulo buscarModulo(int id);
 
@@ -27,21 +30,30 @@ public interface IFachada {
 //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Perfis">
-    void inserirPerfil(Perfil perfil) throws CampoExistenteException;
+    void inserirPerfil(Perfil perfil) 
+            throws CampoExistenteException, FormatoInvalidoException, 
+                CampoVazioException;
 
     Perfil buscarPerfil(int id);
 
     void alterarPerfil(Perfil perfil);
+    
+    Collection<Perfil> listarPerfil();
 //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Usuarios">
-    Boolean efetuarLogin(String login, String senha) throws ValidarLoginException, NoSuchAlgorithmException;
+    Boolean efetuarLogin(String login, String senha) 
+            throws ValidarLoginException, NoSuchAlgorithmException;
     
-    void inserirUsuario(Usuario usuario) throws CampoVazioException, CampoExistenteException, NoSuchAlgorithmException;
+    void inserirUsuario(Usuario usuario) 
+            throws CampoVazioException, CampoExistenteException, 
+                NoSuchAlgorithmException, FormatoInvalidoException;
 
     Usuario buscarUsuario(int id);
 
     void alterarUsuario(Usuario usuario);
+    
+    Collection<Usuario> listarUsuario();
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Chamados">
@@ -65,7 +77,9 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Servicos">
-    public void inserirServicos(Servicos servicos);
+    public void inserirServicos(Servicos servicos) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException;
 
     public Servicos buscarServicos(int id);
 
@@ -75,7 +89,9 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para StatusChamado">
-    public void inserirStatusChamado(StatusChamado statusChamado);
+    public void inserirStatusChamado(StatusChamado statusChamado) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException;
 
     public StatusChamado buscarStatusChamado(int id);
 
@@ -85,7 +101,9 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para TipoChamado">
-    public void inserirTipoChamado(TipoChamado tipoChamado);
+    public void inserirTipoChamado(TipoChamado tipoChamado) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException;
 
     public TipoChamado buscarTipoChamado(int id);
 

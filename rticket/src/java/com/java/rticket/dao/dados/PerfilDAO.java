@@ -15,12 +15,12 @@ public class PerfilDAO extends DAOGenerico<Perfil>{
 	super(em);
     }
     
-    public Boolean buscarPerfilNome(String nome){
+    public Boolean buscarNome(String nome){
         String sql;
         Boolean verificaNome = false;
-        sql = ("SELECT p FROM Perfil p WHERE p.nome = :nomePerfil");
+        sql = ("SELECT p FROM Perfil p WHERE p.nome = :nome");
         Query q = getEntityManager().createQuery(sql, Perfil.class);
-        q.setParameter("nomePerfil", nome);
+        q.setParameter("nome", nome);
         perfil = q.getResultList();
         if (perfil.isEmpty()){
             verificaNome = true;

@@ -4,27 +4,59 @@ import com.java.rticket.excecao.CampoExistenteException;
 import com.java.rticket.model.Modulo;
 import com.java.rticket.dao.DAOFactory;
 import com.java.rticket.dao.dados.ModuloDAO;
+import com.java.rticket.excecao.CampoVazioException;
+import com.java.rticket.excecao.FormatoInvalidoException;
 import java.util.Collection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControladorModulo {
     
     private ModuloDAO moduloDAO;
-    private Boolean verificaNome;
+    private Boolean resultado;
     
     public ControladorModulo() {
         moduloDAO = DAOFactory.getModuloDAO();
     }
     
-    //Metodo para buscar o Modulo pelo Nome
-    public Boolean buscarModuloNome(String nome){
-        return this.verificaNome = moduloDAO.buscarModuloNome(nome);
+    //Metodo de Verificar Caracteres Especiais
+    public Boolean verificarCaracteres(String nome){
+        
+        this.resultado = false;
+        Pattern pattern = Pattern.compile("[A-Z][a-z]{1,}");
+        Matcher matcher = pattern.matcher(nome);
+        
+        if(matcher.find()){
+            this.resultado = true;
+        }
+        
+        return this.resultado;
+    }
+    
+    //Metodo para verificar se o nome ja existe no banco
+    public Boolean buscarNome(String nome){
+        return this.resultado = moduloDAO.buscarNome(nome);
     }
     
     //Metodo para Inserir Modulo
-    public void inserirModulo(Modulo modulo) throws CampoExistenteException{
-        buscarModuloNome(modulo.getNome());
-        if (verificaNome == false){
+    public void inserirModulo(Modulo modulo) 
+            throws CampoExistenteException, FormatoInvalidoException, 
+                CampoVazioException{
+        
+        if (modulo.getNome() == null){
+            throw new CampoVazioException(); 
+        }
+        
+        buscarNome(modulo.getNome());
+        
+        if (this.resultado == false){
             throw new CampoExistenteException();
+        }
+        
+        verificarCaracteres(modulo.getNome());
+        
+        if(this.resultado == false){
+            throw new FormatoInvalidoException();
         }
         else{
             moduloDAO.inserir(modulo);

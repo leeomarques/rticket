@@ -2,6 +2,7 @@ package com.java.rticket.negocio;
 
 import com.java.rticket.excecao.CampoVazioException;
 import com.java.rticket.excecao.CampoExistenteException;
+import com.java.rticket.excecao.FormatoInvalidoException;
 import com.java.rticket.model.Modulo;
 import com.java.rticket.model.Usuario;
 import java.security.NoSuchAlgorithmException;
@@ -9,7 +10,8 @@ import java.util.Iterator;
 import javax.swing.JOptionPane;
 
 public class GUITeste {
-    public static void main(String[] args) throws NoSuchAlgorithmException{
+    public static void main(String[] args) 
+            throws NoSuchAlgorithmException, FormatoInvalidoException{
         IFachada fach = new Fachada();
         try{
             Usuario user = new Usuario();

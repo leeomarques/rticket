@@ -15,12 +15,12 @@ public class ModuloDAO extends DAOGenerico<Modulo>{
 	super(em);
     }
     
-    public Boolean buscarModuloNome(String nome){
+    public Boolean buscarNome(String nome){
         String sql;
         Boolean verificaNome = false;
-        sql = ("SELECT m FROM Modulo m WHERE m.nome = :nomeModulo");
+        sql = ("SELECT m FROM Modulo m WHERE m.nome = :nome");
         Query q = getEntityManager().createQuery(sql, Modulo.class);
-        q.setParameter("nomeModulo", nome);
+        q.setParameter("nome", nome);
         mod = q.getResultList();
         if (mod.isEmpty()){
             verificaNome = true;

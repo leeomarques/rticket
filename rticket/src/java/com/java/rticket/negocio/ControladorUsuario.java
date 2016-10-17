@@ -6,30 +6,49 @@ import com.java.rticket.excecao.CampoExistenteException;
 import com.java.rticket.model.Usuario;
 import com.java.rticket.dao.DAOFactory;
 import com.java.rticket.dao.dados.UsuarioDAO;
+import com.java.rticket.excecao.FormatoInvalidoException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControladorUsuario {
     
     private UsuarioDAO usuarioDAO;
-    private Boolean verificaLogin;
+    private Boolean resultado;
     
     public ControladorUsuario() {
         usuarioDAO = DAOFactory.getUsuarioDAO();
+    }
+    
+    //Metodo de Verificar Caracteres Especiais
+    public Boolean verificarCaracteres(String nome){
+        
+        this.resultado = false;
+        Pattern pattern = Pattern.compile("[A-Z][a-z]{1,}");
+        Matcher matcher = pattern.matcher(nome);
+        
+        if(matcher.find()){
+            this.resultado = true;
+        }
+        
+        return this.resultado;
     }
     
     //Metodo para EfetuarLogin
     public Boolean efetuarLogin(String login, String senha) 
             throws ValidarLoginException, NoSuchAlgorithmException{
         senha = converterSenhaMD5(senha);
-        return this.verificaLogin = usuarioDAO.efetuarLogin(login, senha);
+        return this.resultado = usuarioDAO.efetuarLogin(login, senha);
     }
-    //Metodo para buscar o Usuario pelo Login
+    
+    //Metodo para verificar se o login ja existe no banco
     public Boolean buscarLogin(String login){
-        return this.verificaLogin = usuarioDAO.buscarLogin(login);
+        return this.resultado = usuarioDAO.buscarLogin(login);
     }
+    
     //Metodo para Encriptar a Senha do Usuario
     public static String converterSenhaMD5(String password) 
             throws NoSuchAlgorithmException {
@@ -42,14 +61,23 @@ public class ControladorUsuario {
     //Metodo para Inserir Usuario
     public void inserirUsuario(Usuario usuario)
             throws CampoVazioException, CampoExistenteException, 
-                NoSuchAlgorithmException{
+                NoSuchAlgorithmException, FormatoInvalidoException{
+        
         if (usuario.getNome() == null || usuario.getLogin() == null || 
                 usuario.getSenha() == null){
             throw new CampoVazioException(); 
         }
+        
         buscarLogin(usuario.getLogin());
-        if (verificaLogin == false){
+        
+        if (this.resultado == false){
             throw new CampoExistenteException();
+        }
+        
+        verificarCaracteres(usuario.getNome());
+        
+        if(this.resultado == false){
+            throw new FormatoInvalidoException();
         }
         else{          
             usuario.setSenha(converterSenhaMD5(usuario.getSenha())) ;
@@ -70,5 +98,7 @@ public class ControladorUsuario {
     //Listar todos os Usuarios
     public Collection<Usuario> listarUsuario(){
         return usuarioDAO.listarColecao();
-    } 
+    }
+    
+    
 }

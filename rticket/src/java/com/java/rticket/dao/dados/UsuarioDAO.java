@@ -17,9 +17,9 @@ public class UsuarioDAO extends DAOGenerico<Usuario>{
     public Boolean buscarLogin(String login){
         String sql;
         Boolean verificaLogin = false;
-        sql = ("SELECT u FROM Usuario u WHERE u.login = :loginUsuario");
+        sql = ("SELECT u FROM Usuario u WHERE u.login = :login");
         Query q = getEntityManager().createQuery(sql, Usuario.class);
-        q.setParameter("loginUsuario", login);
+        q.setParameter("login", login);
         user = q.getResultList();
         if (user.isEmpty()){
             verificaLogin = true;

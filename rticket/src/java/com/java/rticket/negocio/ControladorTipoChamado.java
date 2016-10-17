@@ -3,19 +3,64 @@ package com.java.rticket.negocio;
 import com.java.rticket.model.TipoChamado;
 import com.java.rticket.dao.DAOFactory;
 import com.java.rticket.dao.dados.TipoChamadoDAO;
+import com.java.rticket.excecao.CampoExistenteException;
+import com.java.rticket.excecao.CampoVazioException;
+import com.java.rticket.excecao.FormatoInvalidoException;
 import java.util.Collection;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class ControladorTipoChamado {
     
     private TipoChamadoDAO tipoChamadoDAO;
+    private Boolean resultado;
     
     public ControladorTipoChamado() {
         tipoChamadoDAO = DAOFactory.getTipoChamadoDAO();
     }
     
+    //Metodo de Verificar Caracteres Especiais
+    public Boolean verificarCaracteres(String nome){
+        
+        this.resultado = false;
+        Pattern pattern = Pattern.compile("[A-Z][a-z]{1,}");
+        Matcher matcher = pattern.matcher(nome);
+        
+        if(matcher.find()){
+            this.resultado = true;
+        }
+        
+        return this.resultado;
+    }
+    
+    //Metodo para verificar se o nome ja existe no banco
+    public Boolean buscarNome(String nome){
+        return this.resultado = tipoChamadoDAO.buscarNome(nome);
+    }
+    
     //Metodo para Inserir TipoChamado
-    public void inserirTipoChamado(TipoChamado tipoChamado){
-        tipoChamadoDAO.inserir(tipoChamado);   
+    public void inserirTipoChamado(TipoChamado tipoChamado) 
+            throws FormatoInvalidoException, CampoExistenteException, 
+                CampoVazioException{
+        
+        if (tipoChamado.getNome() == null){
+            throw new CampoVazioException(); 
+        }
+                
+        buscarNome(tipoChamado.getNome());
+        
+        if (this.resultado == false){
+            throw new CampoExistenteException();
+        }
+        
+        verificarCaracteres(tipoChamado.getNome());
+        
+        if(this.resultado == false){
+            throw new FormatoInvalidoException();
+        }
+        else{
+            tipoChamadoDAO.inserir(tipoChamado); 
+        }  
     }
     
     //Metodo para Buscar o TipoChamado pelo ID
