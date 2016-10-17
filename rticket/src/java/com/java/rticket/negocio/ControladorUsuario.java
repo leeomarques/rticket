@@ -27,7 +27,7 @@ public class ControladorUsuario {
     public Boolean verificarCaracteres(String nome){
         
         this.resultado = false;
-        Pattern pattern = Pattern.compile("[A-Z][a-z]{1,}");
+        Pattern pattern = Pattern.compile("^[a-zA-Z]*$");
         Matcher matcher = pattern.matcher(nome);
         
         if(matcher.find()){
@@ -40,6 +40,7 @@ public class ControladorUsuario {
     //Metodo para EfetuarLogin
     public Boolean efetuarLogin(String login, String senha) 
             throws ValidarLoginException, NoSuchAlgorithmException{
+        this.resultado = false;
         senha = converterSenhaMD5(senha);
         return this.resultado = usuarioDAO.efetuarLogin(login, senha);
     }
