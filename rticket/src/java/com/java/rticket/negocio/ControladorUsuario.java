@@ -52,7 +52,7 @@ public class ControladorUsuario {
     
     //Metodo para Encriptar a Senha do Usuario
     public static String converterSenhaMD5(String password) 
-            throws NoSuchAlgorithmException {
+            throws NoSuchAlgorithmException{
         MessageDigest md = MessageDigest.getInstance("MD5");
         BigInteger hash = new BigInteger(1, md.digest(password.getBytes()));
         
@@ -92,7 +92,9 @@ public class ControladorUsuario {
     }
     
     //Metodo para Alterar Usuario
-    public void alterarUsuario(Usuario usuario){
+    public void alterarUsuario(Usuario usuario) throws NoSuchAlgorithmException{
+        
+        usuario.setSenha(converterSenhaMD5(usuario.getSenha()));
         usuarioDAO.alterar(usuario);
     }
     

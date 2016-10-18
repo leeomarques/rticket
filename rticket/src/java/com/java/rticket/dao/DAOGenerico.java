@@ -31,16 +31,14 @@ public abstract class DAOGenerico<Entidade> {
      * @param objeto a ser realizado o merge
      * @return objeto que foi executado o merge
      */
-    public Entidade alterar(Entidade objeto) {
+    public void alterar(Entidade objeto) {
 
         EntityTransaction tx = getEntityManager().getTransaction();
         tx.begin();
 
-        objeto = getEntityManager().merge(objeto);
+        getEntityManager().merge(objeto);
 
         tx.commit();
-
-        return objeto;
     }
 
     /**

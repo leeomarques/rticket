@@ -93,7 +93,7 @@ public class Fachada implements IFachada {
         return this.novoUsuario.buscarUsuario(id);
     }
 
-    public void alterarUsuario(Usuario usuario) {
+    public void alterarUsuario(Usuario usuario) throws NoSuchAlgorithmException{
         this.novoUsuario.alterarUsuario(usuario);
     }
     

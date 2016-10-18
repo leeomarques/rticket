@@ -12,24 +12,25 @@ import javax.swing.JOptionPane;
 
 public class GUITeste {
     public static void main(String[] args) 
-            throws NoSuchAlgorithmException, FormatoInvalidoException, 
-                ValidarLoginException{
+            throws FormatoInvalidoException, 
+                NoSuchAlgorithmException, ValidarLoginException{
         IFachada fach = new Fachada();
         try{
-            /*Usuario user = new Usuario();
-            user.setNome("Yanne");
-            user.setLogin("PPPYQASW");
-            user.setSenha("Senhssa1");*/
-            fach.efetuarLogin("PPYQASW", "Senhssa1");
-            /*fach.inserirUsuario(user);           
-            JOptionPane.showMessageDialog(null, "Cadastrado com Sucesso");
-        }catch(CampoVazioException e){
+            Usuario user = new Usuario();
+            user.setId(17);
+            user.setNome("Teste2");
+            user.setLogin("toinhotony1");
+            user.setSenha("1234");
+            //fach.efetuarLogin("PPYQASW", "Senhssa1");
+            fach.alterarUsuario(user);           
+            JOptionPane.showMessageDialog(null, "Alterado com Sucesso");
+        /*}catch(CampoVazioException e){
             JOptionPane.showMessageDialog(null, "Preencher todos os campos");
         }catch(CampoExistenteException e){
             JOptionPane.showMessageDialog(null, "Login Existente");
         }catch(FormatoInvalidoException e){
             JOptionPane.showMessageDialog(null, "Formato Invalido");*/
-        }catch(ValidarLoginException e){
+        }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Login Invalido");
         }
         Iterator<Modulo> iterator;

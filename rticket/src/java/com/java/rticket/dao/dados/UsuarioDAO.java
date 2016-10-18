@@ -16,27 +16,27 @@ public class UsuarioDAO extends DAOGenerico<Usuario>{
     
     public Boolean buscarLogin(String login){
         String sql;
-        Boolean verificaLogin = false;
+        Boolean verificaLogin = true;
         sql = ("SELECT u FROM Usuario u WHERE u.login = :login");
         Query q = getEntityManager().createQuery(sql, Usuario.class);
         q.setParameter("login", login);
         user = q.getResultList();
         if (user.isEmpty()){
-            verificaLogin = true;
+            verificaLogin = false;
         }      
         return verificaLogin;
     }
     
     public Boolean efetuarLogin(String login, String senha){
         String sql;
-        Boolean verificaLogin = false;
+        Boolean verificaLogin = true;
         sql = ("SELECT u FROM Usuario u WHERE u.login = :usuarioLogin and u.senha = :usuarioSenha");
         Query q = getEntityManager().createQuery(sql, Usuario.class);
         q.setParameter("usuarioLogin", login);
         q.setParameter("usuarioSenha", senha);
         user = q.getResultList();
         if (user.isEmpty()){
-            verificaLogin = true;
+            verificaLogin = false;
         }      
         return verificaLogin;
     }
