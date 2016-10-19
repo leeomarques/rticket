@@ -61,10 +61,8 @@ public class Chamados {
 
     @ManyToMany
     @JoinTable(name = "CHAMADOS_SERVICOS",
-            joinColumns = {
-                @JoinColumn(name = "ID_CHAMADO")},
-            inverseJoinColumns = {
-                @JoinColumn(name = "ID_SERVICO")})
+            joinColumns = {@JoinColumn(name = "ID_CHAMADO")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_SERVICO")})
     private Collection<Servicos> servicos;
 
     public Chamados() {

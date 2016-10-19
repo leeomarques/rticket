@@ -3,10 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/dao/DAOGenerico.java</file>
-            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/negocio/ControladorUsuario.java</file>
-            <file>file:/C:/Projeto/rticket/rticket/rticket/test/com/java/rticket/model/UsuarioTest.java</file>
-            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/dao/dados/UsuarioDAO.java</file>
+            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/negocio/ControladorChamados.java</file>
+            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/model/Chamados.java</file>
+            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/negocio/ControladorLogChamado.java</file>
+            <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/model/LogChamado.java</file>
             <file>file:/C:/Projeto/rticket/rticket/rticket/src/java/com/java/rticket/negocio/GUITeste.java</file>
         </group>
     </open-files>

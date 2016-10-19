@@ -103,7 +103,7 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Chamados">
-    public void inserirChamados(Chamados chamado) {
+    public void inserirChamados(Chamados chamado) throws CampoVazioException{
         this.novoChamado.inserirChamados(chamado);
     }
 
@@ -121,7 +121,8 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para LogChamados">
-    public void inserirLogChamados(LogChamado logChamado) {
+    public void inserirLogChamados(LogChamado logChamado) 
+            throws CampoVazioException{
         this.novoLogChamado.inserirLogChamado(logChamado);
     }
 

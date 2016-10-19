@@ -57,7 +57,7 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Chamados">
-    void inserirChamados(Chamados chamado);
+    void inserirChamados(Chamados chamado) throws CampoVazioException;
 
     Chamados buscarChamados(int id);
 
@@ -67,7 +67,7 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para LogChamados">
-    void inserirLogChamados(LogChamado logChamado);
+    void inserirLogChamados(LogChamado logChamado) throws CampoVazioException;
 
     LogChamado buscarLogChamados(int id);
 
