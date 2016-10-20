@@ -11,7 +11,6 @@ import com.rticket.model.Usuario;
 import com.rticket.model.LogChamado;
 import com.rticket.model.Chamados;
 import com.rticket.model.TipoChamado;
-import com.rticket.model.Servicos;
 import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
@@ -22,7 +21,6 @@ public class Fachada implements IFachada {
     private ControladorUsuario       novoUsuario;
     private ControladorChamados      novoChamado;
     private ControladorLogChamado    novoLogChamado;
-    private ControladorServicos      novoServico;
     private ControladorStatusChamado novoStatusChamado;
     private ControladorTipoChamado   novoTipoChamado;
 
@@ -32,7 +30,6 @@ public class Fachada implements IFachada {
         this.novoModulo        = new ControladorModulo();
         this.novoChamado       = new ControladorChamados();
         this.novoLogChamado    = new ControladorLogChamado();
-        this.novoServico       = new ControladorServicos();
         this.novoStatusChamado = new ControladorStatusChamado();
         this.novoTipoChamado   = new ControladorTipoChamado();
     }
@@ -111,7 +108,7 @@ public class Fachada implements IFachada {
         return this.novoChamado.buscarChamados(id);
     }
 
-    public void alterarChamados(Chamados chamado) {
+    public void alterarChamados(Chamados chamado){
         this.novoChamado.alterarChamados(chamado);
     }
 
@@ -121,40 +118,12 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para LogChamados">
-    public void inserirLogChamados(LogChamado logChamado) {
-        this.novoLogChamado.inserirLogChamado(logChamado);
-    }
-
     public LogChamado buscarLogChamados(int id) {
         return this.novoLogChamado.buscarLogChamado(id);
     }
 
-    public void alterarLogChamados(LogChamado LogChamado) {
-        this.novoLogChamado.alterarLogChamado(LogChamado);
-    }
-
     public Collection<LogChamado> listarLogChamados() {
         return novoLogChamado.listarLogChamados();
-    }
-//</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Metodos para Servicos">
-    public void inserirServicos(Servicos servicos)
-            throws FormatoInvalidoException, CampoExistenteException,
-                CampoVazioException{
-        this.novoServico.inserirServicos(servicos);
-    }
-
-    public Servicos buscarServicos(int id) {
-        return this.novoServico.buscarServicos(id);
-    }
-
-    public void alterarServicos(Servicos servicos) {
-        this.novoServico.alterarServicos(servicos);
-    }
-
-    public Collection<Servicos> listarServicos() {
-        return novoServico.listarServicos();
     }
 //</editor-fold>
 

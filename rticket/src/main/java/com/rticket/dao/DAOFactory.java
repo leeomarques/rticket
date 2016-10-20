@@ -7,7 +7,6 @@ import com.rticket.dao.dados.LogChamadoDAO;
 import com.rticket.dao.dados.ModuloDAO;
 import com.rticket.dao.dados.StatusChamadoDAO;
 import com.rticket.dao.dados.ChamadosDAO;
-import com.rticket.dao.dados.ServicosDAO;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -41,11 +40,6 @@ public abstract class DAOFactory {
 
     public static PerfilDAO getPerfilDAO() {
         PerfilDAO dao = new PerfilDAO(manager);
-        return dao;
-    }
-
-    public static ServicosDAO getServicosDAO() {
-        ServicosDAO dao = new ServicosDAO(manager);
         return dao;
     }
 

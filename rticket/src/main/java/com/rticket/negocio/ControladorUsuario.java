@@ -64,8 +64,8 @@ public class ControladorUsuario {
             throws CampoVazioException, CampoExistenteException,
                 NoSuchAlgorithmException, FormatoInvalidoException{
 
-        if (usuario.getNome() == null || usuario.getLogin() == null ||
-                usuario.getSenha() == null){
+        if (usuario.getNome().isEmpty() || usuario.getLogin().isEmpty() ||
+                usuario.getSenha().isEmpty()){
             throw new CampoVazioException();
         }
 

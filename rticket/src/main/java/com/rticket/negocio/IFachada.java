@@ -8,7 +8,6 @@ import com.rticket.model.Chamados;
 import com.rticket.model.LogChamado;
 import com.rticket.model.Modulo;
 import com.rticket.model.Perfil;
-import com.rticket.model.Servicos;
 import com.rticket.model.StatusChamado;
 import com.rticket.model.TipoChamado;
 import com.rticket.model.Usuario;
@@ -67,25 +66,9 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para LogChamados">
-    void inserirLogChamados(LogChamado logChamado);
-
     LogChamado buscarLogChamados(int id);
 
-    void alterarLogChamados(LogChamado LogChamado);
-
     Collection<LogChamado> listarLogChamados();
-    //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Assinaturas para Servicos">
-    public void inserirServicos(Servicos servicos)
-            throws FormatoInvalidoException, CampoExistenteException,
-                CampoVazioException;
-
-    public Servicos buscarServicos(int id);
-
-    public void alterarServicos(Servicos servicos);
-
-    public Collection<Servicos> listarServicos();
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para StatusChamado">

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.rticket.model.UsuarioTest
 -------------------------------------------------------------------------------
-Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.56 sec <<< FAILURE! - in com.rticket.model.UsuarioTest
-efetuarLogin(com.rticket.model.UsuarioTest)  Time elapsed: 0.163 sec  <<< FAILURE!
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.138 sec <<< FAILURE! - in com.rticket.model.UsuarioTest
+efetuarLogin(com.rticket.model.UsuarioTest)  Time elapsed: 0.422 sec  <<< FAILURE!
 java.lang.AssertionError: expected:<false> but was:<true>
 	at org.junit.Assert.fail(Assert.java:88)
 	at org.junit.Assert.failNotEquals(Assert.java:743)

@@ -23,7 +23,7 @@ public class ControladorTipoChamado {
     public Boolean verificarCaracteres(String nome){
 
         this.resultado = false;
-        Pattern pattern = Pattern.compile("[A-Z][a-z]{1,}");
+        Pattern pattern = Pattern.compile("^[a-zA-Z]*$");
         Matcher matcher = pattern.matcher(nome);
 
         if(matcher.find()){

@@ -1,5 +1,6 @@
 package com.rticket.dao;
 
+import com.rticket.model.LogChamado;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.Collection;
@@ -7,6 +8,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
 import javax.persistence.Query;
+import javax.swing.JOptionPane;
 
 /**
  * PSC
@@ -49,12 +51,14 @@ public abstract class DAOGenerico<Entidade> {
      * @param objeto a ser salvo
      */
     public void inserir(Entidade objeto) {
-        EntityTransaction tx = getEntityManager().getTransaction();
+        
+       EntityTransaction tx = getEntityManager().getTransaction();
         try {
             tx.begin();
             getEntityManager().persist(objeto);
             tx.commit();
         } catch (PersistenceException e) {
+            JOptionPane.showMessageDialog(null, e);
             tx.rollback();
         }
     }

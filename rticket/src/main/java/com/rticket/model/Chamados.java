@@ -1,13 +1,12 @@
 package com.rticket.model;
 
 import java.util.Collection;
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -22,17 +21,17 @@ public class Chamados {
     private int id;
 
     @Column(name = "DATA_CRIACAO",
-            length = 10, nullable = false, unique = false)
-    private String dataCriacao;
+            length = 20, nullable = false, unique = false)
+    private Date dataCriacao;
 
     @Column(name = "DATA_FECHAMENTO",
-            length = 10, nullable = false, unique = false)
-    private String dataFechamento;
+            length = 20, nullable = true, unique = false)
+    private Date dataFechamento;
 
     @Column(name = "TITULO", length = 100, nullable = false, unique = false)
     private String titulo;
 
-    @Column(name = "DESCRICAO", length = 500, nullable = false, unique = false)
+    @Column(name = "DESCRICAO", length = 1000, nullable = false, unique = false)
     private String descricao;
 
     @Column(name = "RESPOSTA", length = 500, nullable = true, unique = false)
@@ -59,14 +58,6 @@ public class Chamados {
     @JoinColumn(name = "ID_STATUS_CHAMADO")
     private StatusChamado statusChamados;
 
-    @ManyToMany
-    @JoinTable(name = "CHAMADOS_SERVICOS",
-            joinColumns = {
-                @JoinColumn(name = "ID_CHAMADO")},
-            inverseJoinColumns = {
-                @JoinColumn(name = "ID_SERVICO")})
-    private Collection<Servicos> servicos;
-
     public Chamados() {
 
     }
@@ -79,19 +70,19 @@ public class Chamados {
         this.id = id;
     }
 
-    public String getDataCriacao() {
+    public Date getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(String dataCriacao) {
+    public void setDataCriacao(Date dataCriacao) {
         this.dataCriacao = dataCriacao;
     }
 
-    public String getDataFechamento() {
+    public Date getDataFechamento() {
         return dataFechamento;
     }
 
-    public void setDataFechamento(String dataFechamento) {
+    public void setDataFechamento(Date dataFechamento) {
         this.dataFechamento = dataFechamento;
     }
 
@@ -165,13 +156,5 @@ public class Chamados {
 
     public void setStatusChamado(StatusChamado statusChamados) {
         this.statusChamados = statusChamados;
-    }
-
-    public Collection<Servicos> getServicos() {
-        return servicos;
-    }
-
-    public void setServicos(Collection<Servicos> servicos) {
-        this.servicos = servicos;
     }
 }

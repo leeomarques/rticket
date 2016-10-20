@@ -20,6 +20,9 @@ public class StatusChamado {
     @Column(name = "NOME", length = 100, nullable = false, unique = false)
     private String nome;
 
+    @Column(name = "FINALIZA_PROCESSO", length = 1, nullable = true, unique = false)
+    private String finaliza;
+    
     @Column(name = "ATIVO", length = 1, nullable = true, unique = false)
     private String ativo;
 
@@ -54,6 +57,14 @@ public class StatusChamado {
         this.chamados = chamados;
     }
 
+    public String getFinaliza() {
+        return finaliza;
+    }
+
+    public void setFinaliza(String finaliza) {
+        this.finaliza = finaliza;
+    }
+    
     public String getAtivo() {
         return ativo;
     }

@@ -1,5 +1,6 @@
 package com.rticket.model;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,12 +19,12 @@ public class LogChamado {
     private int id;
 
     @Column(name="DATA", length=10, nullable=false, unique=false)
-    private String data;
+    private Date data;
 
-    @Column(name="CAMPO", length=100, nullable=false, unique=false)
-    private String campo;
+    @Column(name="ACAO", length=100, nullable=false, unique=false)
+    private String acao;
 
-    @Column(name="HISTORIO", length=800, nullable=false, unique=false)
+    @Column(name="HISTORICO", length=800, nullable=false, unique=false)
     private String historico;
 
     @ManyToOne
@@ -46,20 +47,20 @@ public class LogChamado {
         this.id = id;
     }
 
-    public String getData() {
+    public Date getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(Date data) {
         this.data = data;
     }
 
-    public String getCampo() {
-        return campo;
+    public String getAcao() {
+        return acao;
     }
 
-    public void setCampo(String campo) {
-        this.campo = campo;
+    public void setAcao(String acao) {
+        this.acao = acao;
     }
 
     public String getHistorico() {
