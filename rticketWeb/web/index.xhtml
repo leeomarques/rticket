@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>RTicket</title>
+        <link href="css/bootstrap.css" rel="stylesheet"></link>
+        <link href="css/padrao.css" rel="stylesheet"></link>
+        <link rel="shortcut icon" href="../img/HelpDeskImage.ico" ></link>
+        
+    </h:head>
+    <body>
+        <f:view>
+            <div class="cabecalho">
+                <h1 class="logoTipo">RTicket</h1>
+                <h3>A melhor central de serviços do Brasil.</h3>
+             </div> 
+            <h:form class="login">            
+                <fieldset>
+
+                    <legend>Controle de Acesso</legend>
+                    <label class="form-group">Login:</label>
+                        <h:inputText class="form-control" value="#{loginBean.login}">
+                            <f:validateLength minimum="2" />
+                        </h:inputText><br />
+                    <label class="form-group">Senha:</label>
+                        <p:password  class="form-control" value="#{loginBean.senha}" feedback="false" label="Firstname" />
+                        <div class="respLogin">
+                            <b><i>#{loginBean.mensagem}</i></b><br />
+                        </div>
+                    <h:commandButton class="btn btn-primary" value="Logar" action="#{loginBean.efetuarLogin(login, senha)}"></h:commandButton>
+                 
+                </fieldset>
+            </h:form>           
+        </f:view>
+    </body>
+</html>

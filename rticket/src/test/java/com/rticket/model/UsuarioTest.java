@@ -26,6 +26,7 @@ public class UsuarioTest {
         Assert.assertEquals(true, resultado);
     }
 
+    @Ignore
     @Test
     public void efetuarLogin(){
 

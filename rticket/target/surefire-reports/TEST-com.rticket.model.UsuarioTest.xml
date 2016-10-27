@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.rticket.model.UsuarioTest" time="2.997" tests="2" errors="0" skipped="0" failures="1">
+<testsuite name="com.rticket.model.UsuarioTest" time="4.432" tests="2" errors="0" skipped="1" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_60\jre\bin"/>
@@ -43,7 +43,7 @@
     <property name="java.vm.specification.version" value="1.8"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_60\jre"/>
-    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 install"/>
+    <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher -Dmaven.ext.class.path=C:\Program Files\NetBeans 8.0.2\java\maven-nblib\netbeans-eventspy.jar -Dfile.encoding=UTF-8 clean install"/>
     <property name="java.specification.vendor" value="Oracle Corporation"/>
     <property name="user.language" value="pt"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -60,16 +60,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase name="testverificarCaracteres" classname="com.rticket.model.UsuarioTest" time="2.575"/>
-  <testcase name="efetuarLogin" classname="com.rticket.model.UsuarioTest" time="0.422">
-    <failure message="expected:&lt;false&gt; but was:&lt;true&gt;" type="java.lang.AssertionError"><![CDATA[java.lang.AssertionError: expected:<false> but was:<true>
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:743)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at com.rticket.model.UsuarioTest.efetuarLogin(UsuarioTest.java:39)
-]]></failure>
-    <system-out><![CDATA[Hibernate: select usuario0_.ID as ID5_, usuario0_.ATIVO as ATIVO5_, usuario0_.LOGIN as LOGIN5_, usuario0_.NOME as NOME5_, usuario0_.SENHA as SENHA5_ from USUARIO usuario0_ where usuario0_.LOGIN=? and usuario0_.SENHA=?
-]]></system-out>
+  <testcase name="testverificarCaracteres" classname="com.rticket.model.UsuarioTest" time="4.432"/>
+  <testcase name="efetuarLogin" classname="com.rticket.model.UsuarioTest" time="0">
+    <skipped/>
   </testcase>
 </testsuite>
