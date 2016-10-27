@@ -45,20 +45,11 @@ public class LoginBean {
         this.mensagem = mensagem;
     }
     
-   /* public String efetuarLogin(){
-	if(getLogin().equalsIgnoreCase(getSenha())){
-	    setMensagem("Login válido");
-	} else {
-  	    setMensagem("Login ou Senha Invalidos. Tente novamente!");
-	}
-	return null;
-    }*/
-    
     public void efetuarLogin(String nome, String senha) throws ValidarLoginException, NoSuchAlgorithmException{
         
         Boolean resultado = false;
         resultado = fach.efetuarLogin(login, senha);
-        
+
         if(resultado == true){
 	    setMensagem("Login válido");
 	} else {
