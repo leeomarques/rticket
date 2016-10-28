@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>RTicket</title>
+        <link href="css/padrao.css" rel="stylesheet"></link>
+        <link rel="shortcut icon" href="../img/HelpDeskImage.ico" ></link>
+    </h:head>
+    <h:body>
+        <h:form>  
+            <p:growl id="messages" />
+            <p:menubar>
+                <p:menuitem value="Chamados" icon="ui-icon-pencil" />
+
+                <p:submenu label="Cadastros" icon="ui-icon-gear">
+                    <p:menuitem value="Modulo" url="#" icon="ui-icon-newwin" /> 
+                    <p:menuitem value="Perfil" url="#" icon="ui-icon-newwin" />
+                    <p:menuitem value="Status de Chamado" url="#" icon="ui-icon-newwin" />
+                    <p:menuitem value="Tipos de Chamados" url="#" icon="ui-icon-newwin" />
+                    <p:menuitem value="Usuarios" url="usuario.xhtml" icon="ui-icon-newwin" />
+                </p:submenu>
+
+                <f:facet name="options">
+                    <p:inputText style="margin-right:10px" placeholder="Busca" />
+                    <p:commandButton type="button" value="Sair" icon="ui-icon-extlink" />
+                </f:facet>
+            </p:menubar>
+        </h:form>
+    </h:body>
+</html>
+

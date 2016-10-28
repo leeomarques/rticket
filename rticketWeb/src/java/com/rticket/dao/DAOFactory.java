@@ -20,11 +20,10 @@ public abstract class DAOFactory {
 
     static {
         try {
-            Class.forName("com.mysql.jdbc.Drive");
+            Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
         factory = Persistence.createEntityManagerFactory("dbrticket");
         if (manager == null || !manager.isOpen()) {
             manager = factory.createEntityManager();

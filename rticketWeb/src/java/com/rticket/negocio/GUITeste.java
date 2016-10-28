@@ -32,11 +32,11 @@ public class GUITeste {
             //statusChamado.setFinaliza("S");
 //            fach1.inserirStatusChamado(statusChamado);
             //user.setId(1);
-            //user.setNome("TESTEFSDF");
-            user.setLogin("TESTEDD");
-            user.setSenha("1234");
-            fach2.efetuarLogin(user.getLogin(), user.getSenha());
-            JOptionPane.showMessageDialog(null, "Login OK");
+            user.setNome("Antonio Correa");
+            user.setLogin("toinhotony");
+            user.setSenha("1785");
+            fach2.inserirUsuario(user);
+            /*JOptionPane.showMessageDialog(null, "Login OK");
             cham.setId(1);
             cham.setDataCriacao(dt);
             cham.setPrioridade("Alta");
@@ -48,7 +48,7 @@ public class GUITeste {
             cham.setStatusChamado(statusChamado);
             cham.setUsuarios(user);
             cham.setResposta("sfsdfkasdfsdhfjasdhfjkshbhvfjshf sffjkshfcasjk fhsdkjfhcsjkhfcasjkf hsjkcfhj");
-//            fach3.inserirChamados(cham);
+//            fach3.inserirChamados(cham);*/
             //fach3.alterarChamados(cham);*/
         /*}catch(CampoVazioException e){
             JOptionPane.showMessageDialog(null, "Para fechar o chamado tem que informar a resposta e a nota");*/
