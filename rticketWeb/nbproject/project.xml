@@ -7,47 +7,47 @@
             <minimum-ant-version>1.6.5</minimum-ant-version>
             <web-module-libraries>
                 <library dirs="200">
-                    <file>${libs.primefaces.classpath}</file>
+                    <file>${file.reference.primefaces-6.0.jar}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.antlr-2.7.7.jar}</file>
+                    <file>${file.reference.antlr-2.7.7.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.dom4j-1.6.1.jar}</file>
+                    <file>${file.reference.dom4j-1.6.1.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.hibernate-commons-annotations-4.0.1.Final.jar}</file>
+                    <file>${file.reference.hibernate-commons-annotations-4.0.1.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.hibernate-core-4.1.2.Final.jar}</file>
+                    <file>${file.reference.hibernate-core-4.1.2.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.hibernate-entitymanager-4.1.2.Final.jar}</file>
+                    <file>${file.reference.hibernate-entitymanager-4.1.2.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.hibernate-jpa-2.0-api-1.0.1.Final.jar}</file>
+                    <file>${file.reference.hibernate-jpa-2.0-api-1.0.1.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.javassist-3.15.0-GA.jar}</file>
+                    <file>${file.reference.javassist-3.15.0-GA.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jboss-logging-3.1.0.GA.jar}</file>
+                    <file>${file.reference.jboss-logging-3.1.0.GA.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar}</file>
+                    <file>${file.reference.jboss-transaction-api_1.1_spec-1.0.0.Final.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
                 <library dirs="200">
-                    <file>${file.reference.mysql-connector-java-5.1.21-bin.jar}</file>
+                    <file>${file.reference.mysql-connector-java-5.1.21-bin.jar-1}</file>
                     <path-in-war>WEB-INF/lib</path-in-war>
                 </library>
             </web-module-libraries>
@@ -59,5 +59,6 @@
                 <root id="test.src.dir"/>
             </test-roots>
         </data>
+        <libraries xmlns="http://www.netbeans.org/ns/cdnjs-libraries/1"/>
     </configuration>
 </project>
