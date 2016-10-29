@@ -11,7 +11,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 public class UsuarioDAO extends DAOGenerico<Usuario>{
+    
     Collection<Usuario> user = new ArrayList();
+    private Usuario usuario = new Usuario();
 
     public UsuarioDAO(EntityManager em) {
         
@@ -31,18 +33,18 @@ public class UsuarioDAO extends DAOGenerico<Usuario>{
         return verificaLogin;
     }
 
-    public Boolean efetuarLogin(String login, String senha){
+    public Usuario efetuarLogin(String login, String senha){
 
         String sql;
-        Boolean verificaLogin = true;
         sql = ("SELECT u FROM Usuario u WHERE u.login = :usuarioLogin and u.senha = :usuarioSenha");
         Query q = getEntityManager().createQuery(sql, Usuario.class);
         q.setParameter("usuarioLogin", login);
         q.setParameter("usuarioSenha", senha);
-        user = q.getResultList();
-        if (user.isEmpty()){
-            verificaLogin = false;
+        
+        if(q.getSingleResult() != null){
+            return usuario = (Usuario) q.getSingleResult(); 
         }
-        return verificaLogin;
+            
+        return usuario = null;
     }
 }

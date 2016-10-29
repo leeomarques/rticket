@@ -18,6 +18,7 @@ public class ControladorUsuario {
 
     private UsuarioDAO usuarioDAO;
     private Boolean resultado;
+    private Usuario user;
 
     public ControladorUsuario() {
         usuarioDAO = DAOFactory.getUsuarioDAO();
@@ -38,11 +39,11 @@ public class ControladorUsuario {
     }
 
     //Metodo para EfetuarLogin
-    public Boolean efetuarLogin(String login, String senha)
+    public Usuario efetuarLogin(String login, String senha)
             throws ValidarLoginException, NoSuchAlgorithmException{
         this.resultado = false;
         senha = converterSenhaMD5(senha);
-        return this.resultado = usuarioDAO.efetuarLogin(login, senha);
+        return user = usuarioDAO.efetuarLogin(login, senha);
     }
 
     //Metodo para verificar se o login ja existe no banco

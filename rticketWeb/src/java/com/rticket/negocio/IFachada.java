@@ -41,7 +41,7 @@ public interface IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Usuarios">
-    Boolean efetuarLogin(String login, String senha)
+    Usuario efetuarLogin(String login, String senha)
             throws ValidarLoginException, NoSuchAlgorithmException;
 
     void inserirUsuario(Usuario usuario)

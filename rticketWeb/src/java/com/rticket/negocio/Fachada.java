@@ -75,7 +75,7 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
-    public Boolean efetuarLogin(String login, String senha)
+    public Usuario efetuarLogin(String login, String senha)
             throws ValidarLoginException, NoSuchAlgorithmException{
         return this.novoUsuario.efetuarLogin(login, senha);
     }

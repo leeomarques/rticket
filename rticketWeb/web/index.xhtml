@@ -17,12 +17,12 @@
             <h:form class="login">            
                 <fieldset>
                     <legend>Controle de Acesso</legend><br />
-                    <p:inputText value="#{usuarioBean.login}" placeholder="Login"></p:inputText><br /><br />
-                    <p:password  value="#{usuarioBean.senha}" placeholder="Senha" feedback="false" label="Firstname" />
+                    <p:inputText value="#{loginBean.login}" placeholder="Login"></p:inputText><br /><br />
+                    <p:password  value="#{loginBean.senha}" placeholder="Senha" feedback="false" label="Firstname" />
                     <div class="respLogin">
-                        <b><i>#{usuarioBean.mensagem}</i></b><br />
+                        <b><i>#{loginBean.mensagem}</i></b><br />
                     </div>                  
-                    <p:commandButton value="Logar" actionListener="#{usuarioBean.efetuarLogin()}" ajax="false" />              
+                    <p:commandButton value="Logar" action="#{loginBean.efetuarLogin()}" ajax="false" />              
                 </fieldset>
             </h:form>           
         </f:view>
