@@ -17,13 +17,13 @@ public class StatusChamadoDAO extends DAOGenerico<StatusChamado>{
 
     public Boolean buscarNome(String nome){
         String sql;
-        Boolean verificaNome = false;
+        Boolean verificaNome = true;
         sql = ("SELECT m FROM StatusChamado m WHERE m.nome = :nome");
         Query q = getEntityManager().createQuery(sql, StatusChamado.class);
         q.setParameter("nome", nome);
         statusChamados = q.getResultList();
         if (statusChamados.isEmpty()){
-            verificaNome = true;
+            verificaNome = false;
         }
         return verificaNome;
     }

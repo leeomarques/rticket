@@ -17,13 +17,13 @@ public class TipoChamadoDAO extends DAOGenerico<TipoChamado>{
 
     public Boolean buscarNome(String nome){
         String sql;
-        Boolean verificaNome = false;
+        Boolean verificaNome = true;
         sql = ("SELECT m FROM TipoChamado m WHERE m.nome = :nome");
         Query q = getEntityManager().createQuery(sql, TipoChamado.class);
         q.setParameter("nome", nome);
         tipoChamados = q.getResultList();
         if (tipoChamados.isEmpty()){
-            verificaNome = true;
+            verificaNome = false;
         }
         return verificaNome;
     }

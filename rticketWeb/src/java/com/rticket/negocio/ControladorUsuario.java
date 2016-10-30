@@ -48,6 +48,7 @@ public class ControladorUsuario {
 
     //Metodo para verificar se o login ja existe no banco
     public Boolean buscarLogin(String login){
+        this.resultado = false;
         return this.resultado = usuarioDAO.buscarLogin(login);
     }
 
@@ -72,7 +73,7 @@ public class ControladorUsuario {
 
         buscarLogin(usuario.getLogin());
 
-        if (this.resultado == false){
+        if (this.resultado == true){
             throw new CampoExistenteException();
         }
 
@@ -101,6 +102,4 @@ public class ControladorUsuario {
     public Collection<Usuario> listarUsuario(){
         return usuarioDAO.listarColecao();
     }
-
-
 }

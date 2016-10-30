@@ -1,14 +1,11 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/filters/LoginFilter.java</file>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/beans/LoginBean.java</file>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/dao/dados/UsuarioDAO.java</file>
-            <file>file:/home/leonardo/Área%20de%20Trabalho/rticket/rticketWeb/web/principal.xhtml</file>
-            <file>file:/home/leonardo/Área%20de%20Trabalho/rticket/rticketWeb/web/index.xhtml</file>
-            <file>file:/home/leonardo/Área%20de%20Trabalho/rticket/rticketWeb/web/cabecalho.xhtml</file>
+            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/negocio/ControladorStatusChamado.java</file>
+            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/negocio/Fachada.java</file>
+            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/test/com/rticket/model/StatusChamadoTest.java</file>
         </group>
     </open-files>
 </project-private>
