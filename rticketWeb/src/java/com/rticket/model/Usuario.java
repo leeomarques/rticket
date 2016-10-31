@@ -7,8 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -32,11 +31,9 @@ public class Usuario {
     @Column(name = "ATIVO", length = 1, nullable = true, unique = false)
     private String ativo;
 
-    @ManyToMany
-    @JoinTable(name = "USUARIO_PERFIL",
-               joinColumns = {@JoinColumn(name = "ID_USUARIO")},
-               inverseJoinColumns = {@JoinColumn(name = "ID_PERFIL")})
-    private Collection<Perfil> perfis;
+    @ManyToOne
+    @JoinColumn(name = "ID_PERFIL")
+    private Perfil perfil;
 
     @OneToMany(mappedBy = "usuarios")
     private Collection<Chamados> chamados;
@@ -88,12 +85,12 @@ public class Usuario {
         this.ativo = ativo;
     }
 
-    public Collection<Perfil> getPerfis() {
-        return perfis;
+    public Perfil getPerfil() {
+        return perfil;
     }
 
-    public void setPerfis(Collection<Perfil> perfis) {
-        this.perfis = perfis;
+    public void setPerfil(Perfil perfil) {
+        this.perfil = perfil;
     }
 
     public Collection<Chamados> getChamados() {

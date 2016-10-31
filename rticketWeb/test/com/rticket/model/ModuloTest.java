@@ -3,7 +3,7 @@ package com.rticket.model;
 import com.rticket.excecao.CampoExistenteException;
 import com.rticket.excecao.CampoVazioException;
 import com.rticket.excecao.FormatoInvalidoException;
-import com.rticket.negocio.ControladorStatusChamado;
+import com.rticket.negocio.ControladorModulo;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.logging.Level;
@@ -13,13 +13,13 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class StatusChamadoTest {
+public class ModuloTest {
     
-    private ControladorStatusChamado controladorSChamado = new ControladorStatusChamado();
-    private StatusChamado statusChamado = new StatusChamado();
-    private Collection<StatusChamado> colecaoSChamado = new ArrayList();
+    private ControladorModulo controladorModulo = new ControladorModulo();
+    private Modulo modulo = new Modulo();
+    private Collection<Modulo> colecaoModulo = new ArrayList();
     
-    public StatusChamadoTest() {
+    public ModuloTest() {
         
     }
     
@@ -30,11 +30,11 @@ public class StatusChamadoTest {
 
     @Test
     public void verificarCaracteres(){
-        
+
         boolean resultado = false;
         String nome = "Novo";
 
-        resultado = controladorSChamado.verificarCaracteres(nome);
+        resultado = controladorModulo.verificarCaracteres(nome);
 
         Assert.assertEquals(true, resultado);
     }
@@ -45,21 +45,21 @@ public class StatusChamadoTest {
         String nome = "novo";
         boolean resultado = false;
         
-        resultado = controladorSChamado.buscarNome(nome);
+        resultado = controladorModulo.buscarNome(nome);
         
-        Assert.assertEquals(true, resultado);       
+        Assert.assertEquals(true, resultado);
     }
 
     @Test
-    public void inserirStatusChamado(){
-         
+    public void inserirModulo(){
+
         try {
-            statusChamado.setNome("Teste");
+            modulo.setNome("CadastrarUsuario");
             boolean resultado = false;
             
-            controladorSChamado.inserirStatusChamado(statusChamado);
+            controladorModulo.inserirModulo(modulo);
             
-            resultado = controladorSChamado.buscarNome(statusChamado.getNome());
+            resultado = controladorModulo.buscarNome(modulo.getNome());
             
             Assert.assertEquals(true, resultado);
             
@@ -69,17 +69,19 @@ public class StatusChamadoTest {
             Assert.fail();
         } catch (CampoVazioException ex) {
             Assert.fail();
-        }    
+        }
+
     }
 
     @Test
-    public void buscarStatusChamado() {
+    public void buscarModulo(){
+        
         int id = 1;
         boolean resultado = false;
         
-        statusChamado = controladorSChamado.buscarStatusChamado(id);
+        modulo = controladorModulo.buscarModulo(id);
         
-        if(statusChamado != null){
+        if(modulo != null){
             resultado = true;
         }
         
@@ -87,19 +89,19 @@ public class StatusChamadoTest {
     }
 
     @Test
-    public void alterarStatusChamado() {
-
-        statusChamado.setId(1);
-        statusChamado.setNome("Novo");
-        statusChamado.setAtivo("I");
-        StatusChamado statusChamadoResul = new StatusChamado();
+    public void alterarModulo(){
+        
+        modulo.setId(1);
+        modulo.setNome("Novo");
+        modulo.setAtivo("I");
+        Modulo moduloResul = new Modulo();
         boolean resultado = false;
         
-        controladorSChamado.alterarStatusChamado(statusChamado);
+        controladorModulo.alterarModulo(modulo);
         
-        statusChamadoResul = controladorSChamado.buscarStatusChamado(1);
+        moduloResul = controladorModulo.buscarModulo(1);
         
-        if(statusChamadoResul.getNome().equals(statusChamado.getNome())){
+        if(moduloResul.getNome().equals(modulo.getNome())){
             resultado = true;
         }
         
@@ -107,15 +109,15 @@ public class StatusChamadoTest {
     }
 
     @Test
-    public void listarStatusChamado() {
+    public void listarModulo(){
         
         boolean resultado = false;
-        colecaoSChamado = controladorSChamado.listarStatusChamado();
+        colecaoModulo = controladorModulo.listarModulo();
         
-        if(colecaoSChamado != null){
+        if(colecaoModulo != null){
             resultado = true;
         }
         
         Assert.assertEquals(true, resultado);
-    }
+    }   
 }

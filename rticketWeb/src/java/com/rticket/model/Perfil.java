@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -28,10 +29,7 @@ public class Perfil {
                inverseJoinColumns={@JoinColumn(name="ID_MODULO")})
     private Collection<Modulo> modulos;
 
-    @ManyToMany
-    @JoinTable(name="USUARIO_PERFIL",
-               joinColumns={@JoinColumn(name="ID_PERFIL")},
-               inverseJoinColumns={@JoinColumn(name="ID_USUARIO")})
+    @OneToMany(mappedBy = "perfil")
     private Collection<Usuario> usuarios;
 
     @Column(name="ATIVO", length=1, nullable=true, unique=false)

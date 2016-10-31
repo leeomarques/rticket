@@ -17,7 +17,7 @@ public class StatusChamado {
     @Column(name = "ID", length = 6, nullable = false, unique = true)
     private int id;
 
-    @Column(name = "NOME", length = 100, nullable = false, unique = false)
+    @Column(name = "NOME", length = 100, nullable = false, unique = true)
     private String nome;
 
     @Column(name = "FINALIZA_PROCESSO", length = 1, nullable = true, unique = false)

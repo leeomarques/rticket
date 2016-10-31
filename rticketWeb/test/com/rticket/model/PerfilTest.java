@@ -3,23 +3,20 @@ package com.rticket.model;
 import com.rticket.excecao.CampoExistenteException;
 import com.rticket.excecao.CampoVazioException;
 import com.rticket.excecao.FormatoInvalidoException;
-import com.rticket.negocio.ControladorStatusChamado;
+import com.rticket.negocio.ControladorPerfil;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
-public class StatusChamadoTest {
+public class PerfilTest {
     
-    private ControladorStatusChamado controladorSChamado = new ControladorStatusChamado();
-    private StatusChamado statusChamado = new StatusChamado();
-    private Collection<StatusChamado> colecaoSChamado = new ArrayList();
+    private ControladorPerfil controladorPerfil = new ControladorPerfil();
+    private Perfil perfil = new Perfil();
+    private Collection<Perfil> colecaoPerfil = new ArrayList();
     
-    public StatusChamadoTest() {
+    public PerfilTest() {
         
     }
     
@@ -30,11 +27,11 @@ public class StatusChamadoTest {
 
     @Test
     public void verificarCaracteres(){
-        
+
         boolean resultado = false;
         String nome = "Novo";
 
-        resultado = controladorSChamado.verificarCaracteres(nome);
+        resultado = controladorPerfil.verificarCaracteres(nome);
 
         Assert.assertEquals(true, resultado);
     }
@@ -45,21 +42,22 @@ public class StatusChamadoTest {
         String nome = "novo";
         boolean resultado = false;
         
-        resultado = controladorSChamado.buscarNome(nome);
+        resultado = controladorPerfil.buscarNome(nome);
         
-        Assert.assertEquals(true, resultado);       
+        Assert.assertEquals(true, resultado);
     }
-
+    
     @Test
-    public void inserirStatusChamado(){
-         
+    public void inserirPerfil(){
+    
         try {
-            statusChamado.setNome("Teste");
+            perfil.setNome("CadastrarUsuario");
+
             boolean resultado = false;
             
-            controladorSChamado.inserirStatusChamado(statusChamado);
+            controladorPerfil.inserirPerfil(perfil);
             
-            resultado = controladorSChamado.buscarNome(statusChamado.getNome());
+            resultado = controladorPerfil.buscarNome(perfil.getNome());
             
             Assert.assertEquals(true, resultado);
             
@@ -69,17 +67,18 @@ public class StatusChamadoTest {
             Assert.fail();
         } catch (CampoVazioException ex) {
             Assert.fail();
-        }    
+        }        
     }
 
     @Test
-    public void buscarStatusChamado() {
+    public void buscarPerfil(){
+        
         int id = 1;
         boolean resultado = false;
         
-        statusChamado = controladorSChamado.buscarStatusChamado(id);
+        perfil = controladorPerfil.buscarPerfil(id);
         
-        if(statusChamado != null){
+        if(perfil != null){
             resultado = true;
         }
         
@@ -87,19 +86,19 @@ public class StatusChamadoTest {
     }
 
     @Test
-    public void alterarStatusChamado() {
-
-        statusChamado.setId(1);
-        statusChamado.setNome("Novo");
-        statusChamado.setAtivo("I");
-        StatusChamado statusChamadoResul = new StatusChamado();
+    public void alterarPerfil(){
+        
+        perfil.setId(1);
+        perfil.setNome("Novo");
+        perfil.setAtivo("I");
+        Perfil perfilResul = new Perfil();
         boolean resultado = false;
         
-        controladorSChamado.alterarStatusChamado(statusChamado);
+        controladorPerfil.alterarPerfil(perfil);
         
-        statusChamadoResul = controladorSChamado.buscarStatusChamado(1);
+        perfilResul = controladorPerfil.buscarPerfil(1);
         
-        if(statusChamadoResul.getNome().equals(statusChamado.getNome())){
+        if(perfilResul.getNome().equals(perfil.getNome())){
             resultado = true;
         }
         
@@ -107,12 +106,12 @@ public class StatusChamadoTest {
     }
 
     @Test
-    public void listarStatusChamado() {
+    public void listarPerfil(){
         
         boolean resultado = false;
-        colecaoSChamado = controladorSChamado.listarStatusChamado();
+        colecaoPerfil = controladorPerfil.listarPerfil();
         
-        if(colecaoSChamado != null){
+        if(colecaoPerfil != null){
             resultado = true;
         }
         
