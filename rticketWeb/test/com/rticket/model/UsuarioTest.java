@@ -3,7 +3,7 @@ package com.rticket.model;
 import com.rticket.excecao.CampoExistenteException;
 import com.rticket.excecao.CampoVazioException;
 import com.rticket.excecao.FormatoInvalidoException;
-import com.rticket.excecao.ValidarLoginException;
+//import com.rticket.excecao.ValidarLoginException;
 import com.rticket.negocio.ControladorUsuario;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
