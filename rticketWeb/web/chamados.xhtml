@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>RTicket - Novo Chamado</title>
+    </h:head>
+    <h:body>
+        <f:view>
+            <ui:include src="cabecalho.xhtml" /><br /><br />
+            <h:form class="cadastros">                              
+                <p:selectOneMenu id="tipo" value="#{chamadosBean.tipoChamados}" style="width:250px">
+                    <f:selectItem itemLabel="Tipo" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{chamadosBean.tipoChamados}" />
+                </p:selectOneMenu><br /><br />
+                <p:selectOneMenu id="situacao" value="#{chamadosBean.statusChamados}" style="width:250px">
+                    <f:selectItem itemLabel="Situação" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{chamadosBean.statusChamados}" />
+                </p:selectOneMenu><br /><br />
+                <p:inputText value="#{chamadosBean.titulo}" placeholder="Titulo" required="true" style="width:500px"></p:inputText><br /><br />
+                <p:inputTextarea rows="6" cols="33" placeholder="Descrição" style="width:500px" /><br /><br />
+                <p:commandButton value="Salvar" action="#{chamadosBean.inserirChamados}" ajax="false" />
+            </h:form>           
+        </f:view>         
+    </h:body>
+</html>
+

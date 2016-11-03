@@ -33,18 +33,19 @@ public class UsuarioDAO extends DAOGenerico<Usuario>{
         return verificaLogin;
     }
 
-    public Usuario efetuarLogin(String login, String senha){
+    public Boolean efetuarLogin(String login, String senha){
 
+        boolean verificaLogin = true;
         String sql;
         sql = ("SELECT u FROM Usuario u WHERE u.login = :usuarioLogin and u.senha = :usuarioSenha");
         Query q = getEntityManager().createQuery(sql, Usuario.class);
         q.setParameter("usuarioLogin", login);
         q.setParameter("usuarioSenha", senha);
         
-        if(q.getSingleResult() != null){
-            return usuario = (Usuario) q.getSingleResult(); 
+        user = q.getResultList();
+        if (user.isEmpty()){
+            verificaLogin = false;
         }
-            
-        return usuario = null;
+        return verificaLogin;
     }
 }

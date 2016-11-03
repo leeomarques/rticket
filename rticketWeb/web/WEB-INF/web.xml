@@ -11,22 +11,12 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
+        <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>30</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
         <welcome-file>index.xhtml</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-    <filter>
-        <filter-name>loginFilter</filter-name>
-        <filter-class>com.rticket.filters.LoginFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>loginFilter</filter-name>
-        <url-pattern>*.xhtml</url-pattern>
-    </filter-mapping>
 </web-app>

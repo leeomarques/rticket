@@ -39,11 +39,11 @@ public class ControladorUsuario {
     }
 
     //Metodo para EfetuarLogin
-    public Usuario efetuarLogin(String login, String senha)
+    public Boolean efetuarLogin(String login, String senha)
             throws ValidarLoginException, NoSuchAlgorithmException{
         this.resultado = false;
         senha = converterSenhaMD5(senha);
-        return user = usuarioDAO.efetuarLogin(login, senha);
+        return usuarioDAO.efetuarLogin(login, senha);
     }
 
     //Metodo para verificar se o login ja existe no banco

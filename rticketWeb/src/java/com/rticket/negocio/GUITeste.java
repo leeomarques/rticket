@@ -13,9 +13,9 @@ import javax.swing.JOptionPane;
 public class GUITeste {
     public static void main(String[] args) 
             throws FormatoInvalidoException, CampoExistenteException{
-        try{
+        //try{
         IFachada fach = new Fachada();
-        IFachada fach1 = new Fachada();
+        /*IFachada fach1 = new Fachada();
         IFachada fach2 = new Fachada();
         IFachada fach3 = new Fachada();
         Chamados cham = new Chamados();
@@ -52,10 +52,8 @@ public class GUITeste {
             //fach3.alterarChamados(cham);*/
         /*}catch(CampoVazioException e){
             JOptionPane.showMessageDialog(null, "Para fechar o chamado tem que informar a resposta e a nota");*/
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, e);
-        }
-        
+
+        //fach.listarChamados();
         
         
         /*try{

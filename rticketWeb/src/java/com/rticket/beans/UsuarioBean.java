@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name = "usuarioBean")
+@ManagedBean(name = "/usuarioBean")
 public class UsuarioBean {
 
     IFachada fach = new Fachada();

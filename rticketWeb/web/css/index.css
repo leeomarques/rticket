@@ -1,0 +1,43 @@
+.cabecalho{
+    margin: 0;
+    background-color: #52555E;
+    height: 200px;
+    color: #FFF;
+}
+
+body{
+    margin: 0;
+    background-color: #C9C8C4;
+}
+
+.logoTipo{
+    margin: 0;
+    padding-top: 50px;
+    font-family: Lucida Handwriting;
+    text-align: center;
+}
+
+h3{
+    font-family: Verdana;
+    text-align: center;
+}
+
+.login{
+    margin: 18% auto auto auto;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    width: 360px;
+    height: 250px;
+    box-shadow: 0px 0px 10px black;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.respLogin{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #FF0000;
+}

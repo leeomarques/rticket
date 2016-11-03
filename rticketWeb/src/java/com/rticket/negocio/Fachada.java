@@ -75,7 +75,7 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Usuarios">
-    public Usuario efetuarLogin(String login, String senha)
+    public Boolean efetuarLogin(String login, String senha)
             throws ValidarLoginException, NoSuchAlgorithmException{
         return this.novoUsuario.efetuarLogin(login, senha);
     }
@@ -100,7 +100,7 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Chamados">
-    public void inserirChamados(Chamados chamado) {
+    public void inserirChamados(Chamados chamado) throws CampoVazioException {
         this.novoChamado.inserirChamados(chamado);
     }
 

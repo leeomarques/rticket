@@ -9,6 +9,8 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,35 +34,44 @@ public class ChamadosTest {
     @Test
     public void inserirChamados(){
         
-        Date dt = new Date();
-        chamado.setDataCriacao(dt);
-        chamado.setTitulo("Chamado Teste");
-        chamado.setDescricao("Nao estou conseguindo emitir nota fiscal.");
-        
-        StatusChamado statusChamado = new StatusChamado();
-        statusChamado.setId(1);       
-        chamado.setStatusChamado(statusChamado);
-        
-        TipoChamado tipoChamado = new TipoChamado();
-        tipoChamado.setId(1);
-        chamado.setTipoChamado(tipoChamado);
-        
-        Usuario user = new Usuario();
-        user.setId(1);
-        chamado.setUsuarios(user);
-               
-        boolean resultado = false;
+        try {
+            Date dt = new Date();
+            chamado.setDataCriacao(dt);
+            chamado.setTitulo("Chamado Teste");
+            chamado.setDescricao("Nao estou conseguindo emitir nota fiscal.");
+
+            StatusChamado statusChamado = new StatusChamado();
+            statusChamado.setId(1);       
+            chamado.setStatusChamado(statusChamado);
+
+            TipoChamado tipoChamado = new TipoChamado();
+            tipoChamado.setId(1);
+            chamado.setTipoChamado(tipoChamado);
+
+            Usuario user = new Usuario();
+            user.setId(1);
+            chamado.setUsuarios(user);
+
+            boolean resultado = false;
             
-        controladorChamados.inserirChamados(chamado);
         
-        chamado.setId(1);
-        chamado = controladorChamados.buscarChamados(chamado.getId());
+            controladorChamados.inserirChamados(chamado);
+            
+            chamado.setId(1);
         
-        if(chamado != null){
-            resultado = true;
+            chamado = controladorChamados.buscarChamados(chamado.getId());
+        
+            if(chamado != null){
+                resultado = true;
+            }
+            
+            Assert.assertEquals(true, resultado); 
+            
+        } catch (CampoVazioException ex) {
+            Assert.fail();
         }
-            
-        Assert.assertEquals(true, resultado);       
+        
+              
     }
 
     @Test
@@ -82,8 +93,9 @@ public class ChamadosTest {
     public void alterarChamados(){
         
         Date dt = new Date();
+        chamado.setId(2);
         chamado.setTitulo("Chamado Teste");
-        chamado.setDescricao("Nao estou conseguindo emitir nota fiscal.");
+        chamado.setDescricao("Nao Teste Teste.");
         
         StatusChamado statusChamado = new StatusChamado();
         statusChamado.setId(2);       
@@ -94,8 +106,20 @@ public class ChamadosTest {
         chamado.setTipoChamado(tipoChamado);
         
         Usuario user = new Usuario();
-        user.setId(1);
-        chamado.setUsuarios(user);       
+        user.setId(2);
+        chamado.setUsuarios(user);  
+        
+        boolean resultado = false;
+        
+        controladorChamados.alterarChamados(chamado);
+        
+        chamado = controladorChamados.buscarChamados(2);
+        
+        if (chamado.getStatusChamados().getId() == 2){
+            resultado = true;
+        }
+        
+        Assert.assertEquals(true, resultado);
     }
 
     @Test

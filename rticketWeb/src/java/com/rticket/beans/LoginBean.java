@@ -10,6 +10,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean(name = "loginBean")
 @SessionScoped
@@ -18,7 +19,7 @@ public class LoginBean {
     private String login;
     private String senha;
     private String mensagem;
-    private Usuario usuarioLogado;
+    private boolean usuarioLogado;
 
     IFachada fach = new Fachada();
 
@@ -50,11 +51,11 @@ public class LoginBean {
         this.mensagem = mensagem;
     }
 
-    public Usuario getUsuarioLogado() {
+    public Boolean getUsuarioLogado() {
         return usuarioLogado;
     }
 
-    public void setUsuarioLogado(Usuario usuarioLogado) {
+    public void setUsuarioLogado(Boolean usuarioLogado) {
         this.usuarioLogado = usuarioLogado;
     }
 
@@ -69,7 +70,7 @@ public class LoginBean {
             else{
                 usuarioLogado = fach.efetuarLogin(login, senha);
             
-                if (usuarioLogado.getId() != 0){
+                if (usuarioLogado == true){
                     FacesContext.getCurrentInstance().getExternalContext()
                             .redirect("principal.xhtml");
                 }

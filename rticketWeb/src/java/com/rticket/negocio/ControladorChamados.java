@@ -3,6 +3,7 @@ package com.rticket.negocio;
 import com.rticket.model.Chamados;
 import com.rticket.dao.DAOFactory;
 import com.rticket.dao.dados.ChamadosDAO;
+import com.rticket.excecao.CampoVazioException;
 import com.rticket.model.LogChamado;
 import java.util.Collection;
 import java.util.Date;
@@ -16,7 +17,15 @@ public class ControladorChamados {
     }
 
     //Metodo para Inserir Chamados
-    public void inserirChamados(Chamados chamado){
+    public void inserirChamados(Chamados chamado)throws CampoVazioException{
+        
+        if(chamado.getDataCriacao() == null || chamado.getTitulo().isEmpty() ||
+                chamado.getDescricao().isEmpty() || 
+                chamado.getStatusChamados() == null || 
+                chamado.getTipoChamados() == null || 
+                chamado.getUsuarios() == null){
+            throw new CampoVazioException();
+        }
         
         LogChamado log = new LogChamado();
         Date dt = new Date();
