@@ -7,14 +7,19 @@ import com.rticket.model.TipoChamado;
 import com.rticket.model.Usuario;
 import com.rticket.negocio.Fachada;
 import com.rticket.negocio.IFachada;
+import java.text.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Iterator;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.context.FacesContext;
 import javax.swing.JOptionPane;
+import org.primefaces.context.RequestContext;
+import org.primefaces.event.SelectEvent;
 
-@ManagedBean(name = "/chamadosBean")
+@ManagedBean(name = "chamadosBean")
 public class ChamadosBean {
 
     private int id;
@@ -30,7 +35,7 @@ public class ChamadosBean {
     private StatusChamado statusChamados;
     private String mensagem;
     private Chamados chamado;
-    
+
     IFachada fach = new Fachada();
 
     public ChamadosBean() {
@@ -132,7 +137,7 @@ public class ChamadosBean {
     public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
-       
+
     public Chamados getChamado() {
         return chamado;
     }
@@ -167,17 +172,31 @@ public class ChamadosBean {
         Collection<Chamados> listChamado = new ArrayList();
 
         Iterator<Chamados> iterator;
-        
+
         iterator = fach.listarChamados().iterator();
-        
-        while(iterator.hasNext()) {
-            
-           Chamados item = (Chamados)iterator.next();
-            
+
+        while (iterator.hasNext()) {
+
+            Chamados item = (Chamados) iterator.next();
+
             System.out.println(item.getId());
-             
-         }
-        
+
+        }
+
         return listChamado;
     }
+
+    public void onDateSelect(SelectEvent event) {
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Date Selected", format.format(event.getObject())));
+    }
+
+    public void click() {
+        RequestContext requestContext = RequestContext.getCurrentInstance();
+
+        requestContext.update("form:display");
+        requestContext.execute("PF('dlg').show()");
+    }
+
 }

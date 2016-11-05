@@ -10,6 +10,30 @@
     </h:head>
     <h:body>
         <ui:include src="cabecalho.xhtml" />
+
+        <h:form>
+            <p:growl id="msgs" showDetail="true" />
+
+            <h:panelGrid columns="2" cellpadding="5">
+                <p:outputLabel  value="ID:"/> <p:inputText id="nome" style="width:30px" value="" />
+                <p:outputLabel  value="Login:"/> <p:inputText id="nome2" style="width:100px" value="" />
+                <p:outputLabel  value="Nome:"/> <p:inputText id="nome3" style="width:500px" value="" />
+                <p:outputLabel  value="Senha:"/> <p:inputText id="nome4" style="width:100px" value="" />
+                <p:outputLabel for="console" value="Situação:" />
+                <p:selectOneMenu id="console" value="#{usuarioBean.console}" style="width:125px">
+                    <f:selectItem itemLabel="Ativo" itemValue="1" />
+                    <f:selectItem itemLabel="Inativo" itemValue="2" />
+                </p:selectOneMenu>
+
+
+
+
+            </h:panelGrid>
+
+            <p:commandButton value="Gravar" icon="ui-icon-check"  />
+
+
+        </h:form>
     </h:body>
 </html>
 

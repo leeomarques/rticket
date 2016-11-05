@@ -3,11 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/beans/ChamadosBean.java</file>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/web/cabecalho.xhtml</file>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/web/chamados.xhtml</file>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/src/java/com/rticket/negocio/ControladorChamados.java</file>
-            <file>file:/C:/Projeto/ProjetoPSC/rticket/rticketWeb/web/css/padrao.css</file>
+            <file>file:/home/leonardo/rticket/rticketWeb/web/statuschamado.xhtml</file>
         </group>
     </open-files>
 </project-private>

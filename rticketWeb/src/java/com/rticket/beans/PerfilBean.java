@@ -9,7 +9,7 @@ import com.rticket.negocio.IFachada;
 import java.util.Collection;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name = "/perfilBean")
+@ManagedBean(name = "perfilBean")
 public class PerfilBean {
     
     IFachada fach = new Fachada();
