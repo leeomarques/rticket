@@ -3,7 +3,7 @@ package com.rticket.model;
 import com.rticket.excecao.CampoExistenteException;
 import com.rticket.excecao.CampoVazioException;
 import com.rticket.excecao.FormatoInvalidoException;
-//import com.rticket.excecao.ValidarLoginException;
+import com.rticket.excecao.ValidarLoginException;
 import com.rticket.negocio.ControladorUsuario;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -38,27 +38,27 @@ public class UsuarioTest {
         Assert.assertEquals(true, resultado);
     }
 
-//    @Test
-//    public void efetuarLogin(){
-//        
-//        try {
-//            String login = "toinho";
-//            String senha = "1234";
-//            boolean resultado = false;
-//        
-//            user = controladorUsuario.efetuarLogin(login, senha);
-//            if (user != null){
-//                resultado = true;
-//            }
-//        
-//        Assert.assertEquals(true, resultado);
-//            
-//        } catch (ValidarLoginException ex) {
-//            Assert.fail();
-//        } catch (NoSuchAlgorithmException ex) {
-//            Assert.fail();
-//        }       
-//    }
+    @Test
+    public void efetuarLogin(){
+        
+        try {
+            String login = "toinho";
+            String senha = "1234";
+            boolean resultado = false;
+        
+            resultado = controladorUsuario.efetuarLogin(login, senha);
+            if (user != null){
+                resultado = true;
+            }
+        
+        Assert.assertEquals(true, resultado);
+            
+        } catch (ValidarLoginException ex) {
+            Assert.fail();
+        } catch (NoSuchAlgorithmException ex) {
+            Assert.fail();
+        }       
+    }
 
     @Test
     public void buscarLogin(){
