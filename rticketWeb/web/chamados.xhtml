@@ -12,15 +12,15 @@
         <f:view>
             <ui:include src="cabecalho.xhtml" /><br /><br />
             <h:form class="cadastros">                              
-                <p:selectOneMenu id="tipo" value="#{chamadosBean.tipoChamados}" style="width:250px">
+                <p:selectOneMenu id="tipo" var="tipoChamado" value="#{chamadosBean.listarTipoChamado}" style="width:250px">
                     <f:selectItem itemLabel="Tipo" itemValue="" noSelectionOption="true" />
-                    <f:selectItems value="#{chamadosBean.tipoChamados}" />
+                    <f:selectItems value="#{tipoChamado.nome}" />
                 </p:selectOneMenu><br /><br />
-                <p:selectOneMenu id="situacao" value="#{chamadosBean.statusChamados}" style="width:250px">
+                <p:selectOneMenu id="situacao" value="#{chamadosBean.chamado.statusChamados}" style="width:250px">
                     <f:selectItem itemLabel="Situação" itemValue="" noSelectionOption="true" />
-                    <f:selectItems value="#{chamadosBean.statusChamados}" />
+                    <f:selectItems value="#{chamadosBean.chamado.statusChamados.nome}" />
                 </p:selectOneMenu><br /><br />
-                <p:inputText value="#{chamadosBean.titulo}" placeholder="Titulo" required="true" style="width:500px"></p:inputText><br /><br />
+                <p:inputText value="#{chamadosBean.chamado.titulo}" placeholder="Titulo" required="true" style="width:500px"></p:inputText><br /><br />
                 <p:inputTextarea rows="6" cols="33" placeholder="Descrição" style="width:500px" /><br /><br />
                 <p:commandButton value="Salvar" action="#{chamadosBean.inserirChamados}" ajax="false" />
             </h:form>           

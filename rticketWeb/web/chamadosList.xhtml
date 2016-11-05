@@ -11,7 +11,6 @@
         <title>RTicket - Chamados</title>
     </h:head>
     <h:body>
-        #{chamadosBean.listarChamados}
         <f:view>
             <ui:include src="cabecalho.xhtml" /><br /><br />
             <p:button outcome="chamados.xhtml" value="Novo" icon="ui-icon-star"></p:button><br /><br /><br />
@@ -21,11 +20,11 @@
                 </p:column>
                 
                 <p:column style="width: 20%" headerText="Tipo">
-                    <h:outputText value="#{chamado.tipoChamados}" />
+                    <h:outputText value="#{chamado.tipoChamados.nome}" />
                 </p:column>
 
                 <p:column style="width: 20%" headerText="Situação">
-                    <h:outputText value="#{chamado.statusChamados}" />
+                    <h:outputText value="#{chamado.statusChamados.nome}" />
                 </p:column>
                 
                 <p:column style="width: 40%" headerText="Titulo">
@@ -33,8 +32,7 @@
                 </p:column>
 
                 <p:column style="width: 12%" headerText="Criado Em">
-                    <h:outputText value="#{chamado.dataCriacao}" />
-                    
+                    <h:outputText value="#{chamado.dataCriacao}" />                   
                 </p:column>
             </p:dataTable>
         </f:view>

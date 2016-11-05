@@ -6,7 +6,7 @@ import com.rticket.negocio.IFachada;
 import java.util.Collection;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name = "/logChamadoBean")
+@ManagedBean(name = "logChamadoBean")
 public class LogChamadoBean {
     
     IFachada fach = new Fachada();

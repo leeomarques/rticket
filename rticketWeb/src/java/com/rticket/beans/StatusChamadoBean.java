@@ -9,7 +9,7 @@ import com.rticket.negocio.IFachada;
 import java.util.Collection;
 import javax.faces.bean.ManagedBean;
 
-@ManagedBean(name = "/statusChamadoBean")
+@ManagedBean(name = "statusChamadoBean")
 public class StatusChamadoBean {
     
     IFachada fach = new Fachada();
