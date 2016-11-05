@@ -58,6 +58,15 @@ public class Chamados {
     @JoinColumn(name = "ID_STATUS_CHAMADO")
     private StatusChamado statusChamados;
 
+<<<<<<< HEAD:rticket/src/main/java/com/rticket/model/Chamados.java
+=======
+    @ManyToMany
+    @JoinTable(name = "CHAMADOS_SERVICOS",
+            joinColumns = {@JoinColumn(name = "ID_CHAMADO")},
+            inverseJoinColumns = {@JoinColumn(name = "ID_SERVICO")})
+    private Collection<Servicos> servicos;
+
+>>>>>>> origin:rticket/src/java/com/java/rticket/model/Chamados.java
     public Chamados() {
 
     }

@@ -90,7 +90,7 @@ public class Fachada implements IFachada {
         return this.novoUsuario.buscarUsuario(id);
     }
 
-    public void alterarUsuario(Usuario usuario) {
+    public void alterarUsuario(Usuario usuario) throws NoSuchAlgorithmException{
         this.novoUsuario.alterarUsuario(usuario);
     }
 
@@ -100,7 +100,7 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para Chamados">
-    public void inserirChamados(Chamados chamado) {
+    public void inserirChamados(Chamados chamado) throws CampoVazioException{
         this.novoChamado.inserirChamados(chamado);
     }
 
@@ -118,6 +118,14 @@ public class Fachada implements IFachada {
 //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Metodos para LogChamados">
+<<<<<<< HEAD:rticket/src/main/java/com/rticket/negocio/Fachada.java
+=======
+    public void inserirLogChamados(LogChamado logChamado) 
+            throws CampoVazioException{
+        this.novoLogChamado.inserirLogChamado(logChamado);
+    }
+
+>>>>>>> origin:rticket/src/java/com/java/rticket/negocio/Fachada.java
     public LogChamado buscarLogChamados(int id) {
         return this.novoLogChamado.buscarLogChamado(id);
     }

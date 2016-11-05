@@ -50,13 +50,18 @@ public interface IFachada {
 
     Usuario buscarUsuario(int id);
 
+<<<<<<< HEAD:rticket/src/main/java/com/rticket/negocio/IFachada.java
     void alterarUsuario(Usuario usuario);
 
+=======
+    void alterarUsuario(Usuario usuario) throws NoSuchAlgorithmException;
+    
+>>>>>>> origin:rticket/src/java/com/java/rticket/negocio/IFachada.java
     Collection<Usuario> listarUsuario();
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para Chamados">
-    void inserirChamados(Chamados chamado);
+    void inserirChamados(Chamados chamado) throws CampoVazioException;
 
     Chamados buscarChamados(int id);
 
@@ -66,6 +71,11 @@ public interface IFachada {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Assinaturas para LogChamados">
+<<<<<<< HEAD:rticket/src/main/java/com/rticket/negocio/IFachada.java
+=======
+    void inserirLogChamados(LogChamado logChamado) throws CampoVazioException;
+
+>>>>>>> origin:rticket/src/java/com/java/rticket/negocio/IFachada.java
     LogChamado buscarLogChamados(int id);
 
     Collection<LogChamado> listarLogChamados();

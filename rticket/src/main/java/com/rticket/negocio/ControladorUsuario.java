@@ -51,8 +51,13 @@ public class ControladorUsuario {
     }
 
     //Metodo para Encriptar a Senha do Usuario
+<<<<<<< HEAD:rticket/src/main/java/com/rticket/negocio/ControladorUsuario.java
     public static String converterSenhaMD5(String password)
             throws NoSuchAlgorithmException {
+=======
+    public static String converterSenhaMD5(String password) 
+            throws NoSuchAlgorithmException{
+>>>>>>> origin:rticket/src/java/com/java/rticket/negocio/ControladorUsuario.java
         MessageDigest md = MessageDigest.getInstance("MD5");
         BigInteger hash = new BigInteger(1, md.digest(password.getBytes()));
 
@@ -92,7 +97,9 @@ public class ControladorUsuario {
     }
 
     //Metodo para Alterar Usuario
-    public void alterarUsuario(Usuario usuario){
+    public void alterarUsuario(Usuario usuario) throws NoSuchAlgorithmException{
+        
+        usuario.setSenha(converterSenhaMD5(usuario.getSenha()));
         usuarioDAO.alterar(usuario);
     }
 
