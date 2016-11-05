@@ -75,6 +75,6 @@ public class ControladorTipoChamado {
 
     //Listar todos os TipoChamado
     public Collection<TipoChamado> listarTipoChamado(){
-        return tipoChamadoDAO.listarColecao();
+        return tipoChamadoDAO.listarTipoChamado();
     }
 }

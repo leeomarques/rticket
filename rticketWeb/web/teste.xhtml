@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:form>
+	<h:commandButton action="#{clienteBean.novo}" value="Cadastrar Novo Cliente"></h:commandButton>
+
+	<h:dataTable value="#{clienteBean.clientes}" var="cliente" border="1">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+			#{cliente.id}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Nome</f:facet>
+			#{cliente.nome}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Idade</f:facet>
+			#{cliente.idade}
+		</h:column>
+		<h:column>
+			<f:facet name="header">Operação</f:facet>
+			<h:commandLink value="Editar" action="#{clienteBean.editar}">
+				<f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{cliente}"></f:setPropertyActionListener>
+			</h:commandLink>
+			<h:commandLink value="Remover" action="#{clienteBean.remover}">
+				<f:setPropertyActionListener target="#{clienteBean.cliente}" value="#{cliente}"></f:setPropertyActionListener>
+			</h:commandLink>
+		</h:column>
+	</h:dataTable>
+</h:form>
+</html>

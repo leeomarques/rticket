@@ -27,4 +27,17 @@ public class TipoChamadoDAO extends DAOGenerico<TipoChamado>{
         }
         return verificaNome;
     }
+    
+    //Listar Colecao
+    public Collection<TipoChamado> listarTipoChamado(){
+        
+        Collection<TipoChamado> colecao = null;
+        String sql = "";
+        sql = ("SELECT m FROM TipoChamado m WHERE m.ativo = null");
+        Query q = getEntityManager().createQuery(sql, TipoChamado.class);
+        
+        colecao = q.getResultList();
+
+        return colecao;
+    }
 }
