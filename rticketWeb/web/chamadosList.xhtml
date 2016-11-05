@@ -6,19 +6,20 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-    
+
     <h:head>
         <title>RTicket - Chamados</title>
     </h:head>
     <h:body>
+
         <f:view>
             <ui:include src="cabecalho.xhtml" /><br /><br />
             <p:button outcome="chamados.xhtml" value="Novo" icon="ui-icon-star"></p:button><br /><br /><br />
-            <p:dataTable var="chamado" value="#{chamadosBean.listarChamados}">
+            <p:dataTable var="chamado" value="#{chamadosBean.listarChamados()}">
                 <p:column style="width: 8%" headerText="Id">
-                    <h:outputText value="#{chamado.id}" />
+                    <h:outputText value="#{chamadosBean.id}" />
                 </p:column>
-                
+
                 <p:column style="width: 20%" headerText="Tipo">
                     <h:outputText value="#{chamado.tipoChamados.nome}" />
                 </p:column>
@@ -26,13 +27,15 @@
                 <p:column style="width: 20%" headerText="Situação">
                     <h:outputText value="#{chamado.statusChamados.nome}" />
                 </p:column>
-                
+
                 <p:column style="width: 40%" headerText="Titulo">
                     <h:outputText value="#{chamado.titulo}" />
                 </p:column>
 
                 <p:column style="width: 12%" headerText="Criado Em">
+
                     <h:outputText value="#{chamado.dataCriacao}" />                   
+                    >>>>>>> origin/maven
                 </p:column>
             </p:dataTable>
         </f:view>

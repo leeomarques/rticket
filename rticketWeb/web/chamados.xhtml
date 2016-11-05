@@ -11,6 +11,7 @@
     <h:body>
         <f:view>
             <ui:include src="cabecalho.xhtml" /><br /><br />
+
             <h:form class="cadastros">                              
                 <p:selectOneMenu id="tipo" var="tipoChamado" value="#{chamadosBean.listarTipoChamado}" style="width:250px">
                     <f:selectItem itemLabel="Tipo" itemValue="" noSelectionOption="true" />
@@ -23,6 +24,7 @@
                 <p:inputText value="#{chamadosBean.chamado.titulo}" placeholder="Titulo" required="true" style="width:500px"></p:inputText><br /><br />
                 <p:inputTextarea rows="6" cols="33" placeholder="Descrição" style="width:500px" /><br /><br />
                 <p:commandButton value="Salvar" action="#{chamadosBean.inserirChamados}" ajax="false" />
+                >>>>>>> origin/maven
             </h:form>           
         </f:view>         
     </h:body>
